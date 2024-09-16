@@ -1,7 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7h28brkg6mr3"]
+[gd_scene load_steps=3 format=3 uid="uid://c7h28brkg6mr3"]
 
 [ext_resource type="PackedScene" uid="uid://4p40menupcc3" path="res://Scenes/Characters/player.tscn" id="1_wufmu"]
+[ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="2_kny8n"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_wufmu")]
+
+[node name="Main-charchter" type="Sprite2D" parent="."]
+position = Vector2(-676, 69)
+texture = ExtResource("2_kny8n")
+
+[node name="Main-charchter2" type="Sprite2D" parent="."]
+position = Vector2(-171, -115)
+texture = ExtResource("2_kny8n")
+
+[node name="Main-charchter3" type="Sprite2D" parent="."]
+position = Vector2(13, -127)
+texture = ExtResource("2_kny8n")
+
+[node name="Main-charchter4" type="Sprite2D" parent="."]
+position = Vector2(251, -52)
+texture = ExtResource("2_kny8n")
+
+[node name="Main-charchter5" type="Sprite2D" parent="."]
+position = Vector2(251, 155)
+texture = ExtResource("2_kny8n")
+
+[node name="Main-charchter6" type="Sprite2D" parent="."]
+position = Vector2(-272, 201)
+texture = ExtResource("2_kny8n")

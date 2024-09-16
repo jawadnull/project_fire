@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 const MOVE_SPEED = 400
-const DASH_SPEED = 800  
-const DASH_DURATION = 0.2  
+const DASH_SPEED = 2000 
+const DASH_DURATION = 0.2 
 const DASH_COOLDOWN = 0.5  
 const ACCELERATION = 1800  
 const DECELERATION = 1400  
+const SHAKE_INTENSITY = 8  # How intense the shake is
+const SHAKE_DURATION = 0.1  # How long the shake lasts
 
 @export var playerHelth = 100
 
@@ -15,6 +17,10 @@ var is_dashing = false
 var dash_timer = 0.0
 var cooldown_timer = 0.0
 var current_speed = 0.0  # Player's current movement speed
+var shake_timer = 0.0
+
+@onready var camera = $Camera2D  # Reference to the Camera2D node
+
 
 func _physics_process(delta):
 	handle_input(delta)
@@ -32,8 +38,14 @@ func _physics_process(delta):
 	if cooldown_timer > 0:
 		cooldown_timer -= delta
 
+	# Handle camera shake
+	if shake_timer > 0:
+		shake_timer -= delta
+		apply_camera_shake()
+	else:
+		camera.offset = Vector2.ZERO  # Reset camera offset
 
-func _ready():
+
 	add_to_group("kill")
 
 
@@ -62,10 +74,24 @@ func handle_input(delta):
 		# Decelerate when not walking
 		current_speed = max(current_speed - DECELERATION * delta, 0)
 		velocity = last_direction.normalized() * current_speed
-
+    
+    
+    
 
 func start_dash():
 	is_dashing = true
 	dash_timer = DASH_DURATION  
 	cooldown_timer = DASH_COOLDOWN  
 	velocity = last_direction.normalized() * DASH_SPEED  # Dash in the last direction
+	
+	# Start the camera shake
+	shake_timer = SHAKE_DURATION
+
+
+func apply_camera_shake():
+	# Apply a random offset to the camera to create a shake effect
+	var shake_offset = Vector2(
+		randf_range(-SHAKE_INTENSITY, SHAKE_INTENSITY),
+		randf_range(-SHAKE_INTENSITY, SHAKE_INTENSITY)
+	)
+	camera.offset = shake_offset

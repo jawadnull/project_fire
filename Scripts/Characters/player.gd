@@ -19,6 +19,7 @@ var cooldown_timer = 0.0
 var current_speed = 0.0  # Player's current movement speed
 var shake_timer = 0.0
 
+@onready var gun = get_node("/root/Game/Player/Rifle")
 @onready var camera = $Camera2D  # Reference to the Camera2D node
 
 
@@ -54,6 +55,16 @@ func handle_input(delta):
 	if Input.is_action_just_pressed("dash") and cooldown_timer <= 0:
 		start_dash()
 
+	if gun.weapon_type == "rifles":
+		if Input.is_action_pressed("shoot"):
+			gun.shoot()
+			
+	else:
+		if Input.is_action_just_pressed("shoot"):
+			gun.shoot()
+
+	
+
 	# Get movement input
 	var direction = Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
@@ -74,9 +85,9 @@ func handle_input(delta):
 		# Decelerate when not walking
 		current_speed = max(current_speed - DECELERATION * delta, 0)
 		velocity = last_direction.normalized() * current_speed
-    
-    
-    
+	
+	
+	
 
 func start_dash():
 	is_dashing = true

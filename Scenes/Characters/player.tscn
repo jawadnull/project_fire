@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://4p40menupcc3"]
+[gd_scene load_steps=7 format=3 uid="uid://4p40menupcc3"]
 
 [ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="1_gmhju"]
 [ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="1_n71t6"]
+[ext_resource type="PackedScene" uid="uid://co1gwvc7cedy8" path="res://Scenes/Weapons/rifle.tscn" id="3_hrgxy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrvk2"]
 atlas = ExtResource("1_gmhju")
@@ -35,3 +36,6 @@ animation = &"idle_right"
 shape = SubResource("CapsuleShape2D_m5qq5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Rifle" parent="." instance=ExtResource("3_hrgxy")]
+position = Vector2(1, -3)

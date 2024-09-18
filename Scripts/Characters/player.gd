@@ -56,20 +56,18 @@ func handle_input(delta):
 	if Input.is_action_just_pressed("dash") and cooldown_timer <= 0:
 		start_dash()
 	
-	if Input.is_action_just_pressed("switch_weapon"):
-		weapon_manager.switch_weapon()
-    
 	if weapon_manager.current_weapon != null:
-		if Input.is_action_pressed("shoot"):
-			weapon_manager.current_weapon.shoot()
-
-	#if weapon_manager.weapon_type == "rifles":
-	#	if Input.is_action_pressed("shoot"):
-		#	weapon_manager.current_weapon.shoot()
+		if Input.is_action_just_pressed("switch_weapon"):
+			weapon_manager.switch_weapon()
+	
+	if weapon_manager.current_weapon != null:
+		if weapon_manager.current_weapon_type == "rifles":
+			if Input.is_action_pressed("shoot"):
+				weapon_manager.current_weapon.shoot()
 			
-	#else:
-		#if Input.is_action_just_pressed("shoot"):
-			#weapon_manager.current_weapon.shoot()
+		else:
+			if Input.is_action_just_pressed("shoot"):
+				weapon_manager.current_weapon.shoot()
 
 	
 

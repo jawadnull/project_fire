@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7h28brkg6mr3"]
+[gd_scene load_steps=7 format=3 uid="uid://c7h28brkg6mr3"]
 
+[ext_resource type="Script" path="res://Scripts/Main/game.gd" id="1_lmi76"]
 [ext_resource type="PackedScene" uid="uid://4p40menupcc3" path="res://Scenes/Characters/player.tscn" id="1_wufmu"]
 [ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="2_kny8n"]
 [ext_resource type="PackedScene" uid="uid://g32u3ysi0xjr" path="res://Scenes/PickUp/pick_up.tscn" id="3_j5hst"]
@@ -7,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/PickUp/pick_up.gd" id="5_lalu2"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_lmi76")
 
 [node name="Player" parent="." instance=ExtResource("1_wufmu")]
 

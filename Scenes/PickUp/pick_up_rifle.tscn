@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dby8m8gt1rkpp"]
+
+[ext_resource type="PackedScene" uid="uid://g32u3ysi0xjr" path="res://Scenes/PickUp/pick_up.tscn" id="1_g7okr"]
+[ext_resource type="Script" path="res://Scripts/PickUp/pick_up_rifle.gd" id="2_6o71l"]
+
+[node name="PickUpRifle" instance=ExtResource("1_g7okr")]
+script = ExtResource("2_6o71l")

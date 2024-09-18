@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7h28brkg6mr3"]
+[gd_scene load_steps=6 format=3 uid="uid://c7h28brkg6mr3"]
 
 [ext_resource type="PackedScene" uid="uid://4p40menupcc3" path="res://Scenes/Characters/player.tscn" id="1_wufmu"]
 [ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="2_kny8n"]
+[ext_resource type="PackedScene" uid="uid://g32u3ysi0xjr" path="res://Scenes/PickUp/pick_up.tscn" id="3_j5hst"]
+[ext_resource type="PackedScene" uid="uid://dby8m8gt1rkpp" path="res://Scenes/PickUp/pick_up_rifle.tscn" id="4_cm1hr"]
+[ext_resource type="Script" path="res://Scripts/PickUp/pick_up.gd" id="5_lalu2"]
 
 [node name="Game" type="Node2D"]
 
@@ -30,3 +33,10 @@ texture = ExtResource("2_kny8n")
 [node name="Main-charchter6" type="Sprite2D" parent="."]
 position = Vector2(-272, 201)
 texture = ExtResource("2_kny8n")
+
+[node name="PickIpGun" parent="." instance=ExtResource("3_j5hst")]
+position = Vector2(-419, -1)
+
+[node name="PickUpRifle" parent="." instance=ExtResource("4_cm1hr")]
+position = Vector2(-400, 165)
+script = ExtResource("5_lalu2")

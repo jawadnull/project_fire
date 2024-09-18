@@ -5,11 +5,10 @@ var recoil_strength = 5.0
 var recoil_speed = 10.0  
 var max_recoil_distance = 10.0  
 var shoot_timer = 0.1
-const  weapon_type="rifles";
-const weapon_id=876476543;
+@export var weapon_type="rifles";
 @onready var marker_2d = $Marker2D  
 
-const BULLET = preload("res://Scenes/Bullets/rifle_bullet.tscn")
+const BULLET = preload("res://Scenes/Bullets/Bullet.tscn")
 @onready var camera =get_node("/root/Game/Player/Camera2D")  # Add a reference to your Camera2D node
 
 var can_shoot = true

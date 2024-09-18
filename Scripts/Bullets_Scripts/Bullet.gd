@@ -1,9 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci53xk422s1du"]
-
-[ext_resource type="PackedScene" uid="uid://23mtwknvuaik" path="res://Scenes/Bullets/Bullet.tscn" id="1_femg5"]
-
-[sub_resource type="GDScript" id="GDScript_208hv"]
-script/source = "extends Area2D  # Bullet
+extends Area2D  # Bullet
 
 @export var speed = 2000  # Bullet speed (adjust as needed)
 @export var damage = 100  # Damage the bullet deals
@@ -26,10 +21,6 @@ func _physics_process(delta):
 
 # Handle collisions with enemies or other objects
 func _on_body_entered(body):
-	if body.is_in_group(\"enemies\"):
+	if body.is_in_group("enemies"):
 		body.take_damage(damage)  # Apply damage to the enemy
 		queue_free()  # Destroy the bullet after impact
-"
-
-[node name="rifle_bullet" instance=ExtResource("1_femg5")]
-script = SubResource("GDScript_208hv")

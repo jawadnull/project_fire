@@ -19,9 +19,10 @@ var cooldown_timer = 0.0
 var current_speed = 0.0  # Player's current movement speed
 var shake_timer = 0.0
 
-@onready var gun = get_node("/root/Game/Player/Rifle")
+@onready var weapon_manager = $WeaponManager
+@onready var weapon_parent = weapon_manager.get_node("WeaponHolder") 
 @onready var camera = $Camera2D  # Reference to the Camera2D node
-
+@onready var sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
 	handle_input(delta)
@@ -46,22 +47,29 @@ func _physics_process(delta):
 	else:
 		camera.offset = Vector2.ZERO  # Reset camera offset
 
+	update_sprite_flip()
 
-	add_to_group("kill")
 
 
 func handle_input(delta):
 	# Handle dash input
 	if Input.is_action_just_pressed("dash") and cooldown_timer <= 0:
 		start_dash()
-
-	if gun.weapon_type == "rifles":
+	
+	if Input.is_action_just_pressed("switch_weapon"):
+		weapon_manager.switch_weapon()
+    
+	if weapon_manager.current_weapon != null:
 		if Input.is_action_pressed("shoot"):
-			gun.shoot()
+			weapon_manager.current_weapon.shoot()
+
+	#if weapon_manager.weapon_type == "rifles":
+	#	if Input.is_action_pressed("shoot"):
+		#	weapon_manager.current_weapon.shoot()
 			
-	else:
-		if Input.is_action_just_pressed("shoot"):
-			gun.shoot()
+	#else:
+		#if Input.is_action_just_pressed("shoot"):
+			#weapon_manager.current_weapon.shoot()
 
 	
 
@@ -106,3 +114,14 @@ func apply_camera_shake():
 		randf_range(-SHAKE_INTENSITY, SHAKE_INTENSITY)
 	)
 	camera.offset = shake_offset
+
+
+func update_sprite_flip():
+	var mouse_position = get_global_mouse_position()
+	var player_position = global_position
+
+	# Check if the mouse is to the left or right of the player
+	if mouse_position.x < player_position.x:
+		sprite.flip_h = true  # Flip the sprite to face left
+	else:
+		sprite.flip_h = false  # Default to facing right

@@ -1,16 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://co1gwvc7cedy8"]
+[gd_scene load_steps=2 format=3 uid="uid://du48ehpk1jnax"]
 
-[ext_resource type="Texture2D" uid="uid://b6givmhgiqv6x" path="res://Assets/weapons_assets/gun.png" id="1_cvdxk"]
-[ext_resource type="Script" path="res://Scripts/Weapon_Scripts/rifle.gd" id="1_wdwc5"]
+[ext_resource type="PackedScene" uid="uid://co1gwvc7cedy8" path="res://Scenes/Weapons/Weapon.tscn" id="1_jgmxy"]
 
-[node name="Rifle" type="Node2D"]
-script = ExtResource("1_wdwc5")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(12, 1)
-scale = Vector2(3, 3)
-texture = ExtResource("1_cvdxk")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(47, -5)
-scale = Vector2(2, 2)
+[node name="Rifle" instance=ExtResource("1_jgmxy")]

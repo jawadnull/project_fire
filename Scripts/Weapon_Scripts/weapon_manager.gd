@@ -21,6 +21,10 @@ func equip_weapon(index):
 		current_weapon = weapon_scenes[current_weapon_index].instantiate()  # Create the new weapon
 		weapon_parent.add_child(current_weapon)  # Add it to the scene under weapon_parent
 		current_weapon_type = current_weapon.weapon_type if current_weapon.has_method("weapon_type") else "unknown"  # Save the weapon type
+		
+		
+		
+	
 
 # Switches to the next weapon in the list by index
 func switch_weapon():

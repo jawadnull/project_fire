@@ -95,9 +95,9 @@ func handle_input(delta):
 
 
 
-func add_ammo_to_weapon(ammo_amount):
+func add_ammo_to_weapon(ammo_amount,ammo_name):
 	if weapon_manager.current_weapon and weapon_manager.current_weapon.has_method("add_ammo"):
-		weapon_manager.current_weapon.add_ammo(ammo_amount)
+		weapon_manager.current_weapon.add_ammo(ammo_amount,ammo_name)
 		
 
 

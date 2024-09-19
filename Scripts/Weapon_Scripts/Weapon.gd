@@ -7,6 +7,7 @@ var max_recoil_distance = 10.0
 var shoot_timer = 0.1
 const weapon_type = "rifles"
 const weapon_id = 876476543
+var ammo_name="weapon_ammo"
 
 @onready var marker_2d = $Marker2D  
 @onready var camera = get_node("/root/Game/Player/Camera2D")  # Reference to your Camera2D node
@@ -59,11 +60,12 @@ func shoot():
 
 
 # Adds ammo to the current weapon
-func add_ammo(amount):
-	var ammo_needed = max_ammo - ammo
-	var ammo_to_add = min(amount, ammo_needed)
-	ammo += ammo_to_add  # Add ammo to current magazine
-	reserve_ammo += (amount - ammo_to_add)  # Add any excess to the reserve
+func add_ammo(amount, ammo_name):
+	if ammo_name == self.ammo_name:
+		var ammo_needed = max_ammo - ammo
+		var ammo_to_add = min(amount, ammo_needed)
+		ammo += ammo_to_add  # Add ammo to current magazine
+		reserve_ammo += (amount - ammo_to_add)  # Add any excess to the reserve
 
 
 

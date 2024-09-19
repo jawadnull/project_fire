@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7h28brkg6mr3"]
+[gd_scene load_steps=8 format=3 uid="uid://c7h28brkg6mr3"]
 
 [ext_resource type="Script" path="res://Scripts/Main/game.gd" id="1_lmi76"]
 [ext_resource type="PackedScene" uid="uid://4p40menupcc3" path="res://Scenes/Characters/player.tscn" id="1_wufmu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://g32u3ysi0xjr" path="res://Scenes/PickUp/pick_up.tscn" id="3_j5hst"]
 [ext_resource type="PackedScene" uid="uid://dby8m8gt1rkpp" path="res://Scenes/PickUp/pick_up_rifle.tscn" id="4_cm1hr"]
 [ext_resource type="Script" path="res://Scripts/PickUp/pick_up.gd" id="5_lalu2"]
+[ext_resource type="PackedScene" uid="uid://b7v27m1qrf4cs" path="res://Scenes/PickUp/pick_up_ammo.tscn" id="7_gm5ro"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lmi76")
@@ -42,3 +43,9 @@ position = Vector2(-419, -1)
 [node name="PickUpRifle" parent="." instance=ExtResource("4_cm1hr")]
 position = Vector2(-400, 165)
 script = ExtResource("5_lalu2")
+
+[node name="PickUp" parent="." instance=ExtResource("3_j5hst")]
+position = Vector2(10, 117)
+
+[node name="PickUpAmmo" parent="." instance=ExtResource("7_gm5ro")]
+position = Vector2(140, 53)

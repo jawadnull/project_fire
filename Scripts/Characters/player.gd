@@ -68,9 +68,7 @@ func handle_input(delta):
 		else:
 			if Input.is_action_just_pressed("shoot"):
 				weapon_manager.current_weapon.shoot()
-
 	
-
 	# Get movement input
 	var direction = Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
@@ -94,6 +92,14 @@ func handle_input(delta):
 	
 	
 	
+
+
+
+func add_ammo_to_weapon(ammo_amount):
+	if weapon_manager.current_weapon and weapon_manager.current_weapon.has_method("add_ammo"):
+		weapon_manager.current_weapon.add_ammo(ammo_amount)
+		
+
 
 func start_dash():
 	is_dashing = true

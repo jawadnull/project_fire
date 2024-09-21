@@ -23,9 +23,10 @@ var shake_timer = 0.0
 @onready var weapon_parent = weapon_manager.get_node("WeaponHolder") 
 @onready var camera = $Camera2D  # Reference to the Camera2D node
 @onready var sprite = $AnimatedSprite2D
+@onready var interactive_ui: CanvasLayer = $InteractiveUI
 
 #refrence player in global script
-func free() -> void:
+func _ready() -> void:
 	Global.set_player_refrence(self)
 	
 

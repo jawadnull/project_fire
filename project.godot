@@ -22,6 +22,10 @@ Global="*res://Scripts/Main/Global.gd"
 
 project/assembly_name="project_fire"
 
+[global_group]
+
+Player=""
+
 [input]
 
 move_right={

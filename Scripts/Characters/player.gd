@@ -24,6 +24,13 @@ var shake_timer = 0.0
 @onready var camera = $Camera2D  # Reference to the Camera2D node
 @onready var sprite = $AnimatedSprite2D
 
+#refrence player in global script
+func free() -> void:
+	Global.set_player_refrence(self)
+	
+
+
+
 func _physics_process(delta):
 	handle_input(delta)
 

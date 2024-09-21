@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7h28brkg6mr3"]
+
+[ext_resource type="Script" path="res://Scripts/Main/game.gd" id="1_f5vpd"]
+[ext_resource type="PackedScene" uid="uid://4p40menupcc3" path="res://Scenes/Characters/player.tscn" id="2_4mqcj"]
+[ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="3_6vg2m"]
+[ext_resource type="PackedScene" uid="uid://g32u3ysi0xjr" path="res://Scenes/PickUp/pick_up.tscn" id="4_gyx4d"]
+[ext_resource type="PackedScene" uid="uid://dby8m8gt1rkpp" path="res://Scenes/PickUp/pick_up_rifle.tscn" id="5_l2vfg"]
+[ext_resource type="Script" path="res://Scripts/PickUp/pick_up.gd" id="6_f1kis"]
+[ext_resource type="PackedScene" uid="uid://b7v27m1qrf4cs" path="res://Scenes/PickUp/pick_up_ammo.tscn" id="7_3g337"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_f5vpd")
+
+[node name="Player" parent="." instance=ExtResource("2_4mqcj")]
+
+[node name="Main-charchter" type="Sprite2D" parent="."]
+position = Vector2(-676, 69)
+texture = ExtResource("3_6vg2m")
+
+[node name="Main-charchter2" type="Sprite2D" parent="."]
+position = Vector2(-171, -115)
+texture = ExtResource("3_6vg2m")
+
+[node name="Main-charchter3" type="Sprite2D" parent="."]
+position = Vector2(13, -127)
+texture = ExtResource("3_6vg2m")
+
+[node name="Main-charchter4" type="Sprite2D" parent="."]
+position = Vector2(251, -52)
+texture = ExtResource("3_6vg2m")
+
+[node name="Main-charchter5" type="Sprite2D" parent="."]
+position = Vector2(251, 155)
+texture = ExtResource("3_6vg2m")
+
+[node name="Main-charchter6" type="Sprite2D" parent="."]
+position = Vector2(-272, 201)
+texture = ExtResource("3_6vg2m")
+
+[node name="PickIpGun" parent="." instance=ExtResource("4_gyx4d")]
+position = Vector2(-419, -1)
+
+[node name="PickUpRifle" parent="." instance=ExtResource("5_l2vfg")]
+position = Vector2(-400, 165)
+script = ExtResource("6_f1kis")
+
+[node name="PickUp" parent="." instance=ExtResource("4_gyx4d")]
+position = Vector2(10, 117)
+
+[node name="PickUpAmmo" parent="." instance=ExtResource("7_3g337")]
+position = Vector2(140, 53)

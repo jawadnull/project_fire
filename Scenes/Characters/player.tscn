@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://4p40menupcc3"]
+[gd_scene load_steps=10 format=3 uid="uid://4p40menupcc3"]
 
 [ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="1_gmhju"]
 [ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="1_n71t6"]
 [ext_resource type="Script" path="res://Scripts/Weapon_Scripts/weapon_manager.gd" id="3_5ba1k"]
+[ext_resource type="PackedScene" uid="uid://ptw0gj1wbt4p" path="res://Scenes/Item/inventory_ui.tscn" id="4_oliao"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrvk2"]
 atlas = ExtResource("1_gmhju")
@@ -25,7 +26,10 @@ height = 100.0
 
 [sub_resource type="FontVariation" id="FontVariation_pnyts"]
 
+[sub_resource type="FontVariation" id="FontVariation_7tv2w"]
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+process_mode = 3
 script = ExtResource("1_n71t6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -74,3 +78,30 @@ grow_vertical = 2
 theme_override_fonts/font = SubResource("FontVariation_pnyts")
 theme_override_font_sizes/font_size = 30
 text = "PRESS 'F' TO PICK UP"
+
+[node name="Inventory_UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Inventory_UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.318617, 0.0229853, 0.0940791, 1)
+
+[node name="Label" type="Label" parent="Inventory_UI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_top = 50.0
+offset_right = 45.5
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_7tv2w")
+theme_override_font_sizes/font_size = 60
+text = "INVENTORY"
+
+[node name="Inventory_UI" parent="Inventory_UI/ColorRect" instance=ExtResource("4_oliao")]

@@ -24,6 +24,7 @@ var shake_timer = 0.0
 @onready var camera = $Camera2D  # Reference to the Camera2D node
 @onready var sprite = $AnimatedSprite2D
 @onready var interactive_ui: CanvasLayer = $InteractiveUI
+@onready var inventory_ui: CanvasLayer = $Inventory_UI
 
 #refrence player in global script
 func _ready() -> void:
@@ -97,6 +98,10 @@ func handle_input(delta):
 		# Decelerate when not walking
 		current_speed = max(current_speed - DECELERATION * delta, 0)
 		velocity = last_direction.normalized() * current_speed
+	
+	if Input.is_action_just_pressed("inventory"):
+		inventory_ui.visible=!inventory_ui.visible
+		get_tree().paused=!get_tree().paused
 	
 	
 	

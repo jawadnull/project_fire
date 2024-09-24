@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="1_gmhju"]
 [ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="1_n71t6"]
 [ext_resource type="Script" path="res://Scripts/Weapon_Scripts/weapon_manager.gd" id="3_5ba1k"]
-[ext_resource type="PackedScene" uid="uid://ptw0gj1wbt4p" path="res://Scenes/Item/inventory_ui.tscn" id="4_oliao"]
+[ext_resource type="PackedScene" uid="uid://ptw0gj1wbt4p" path="res://Scenes/Inventory/inventory_ui.tscn" id="4_oliao"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrvk2"]
 atlas = ExtResource("1_gmhju")

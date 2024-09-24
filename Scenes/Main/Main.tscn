@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dby8m8gt1rkpp" path="res://Scenes/PickUp/pick_up_rifle.tscn" id="5_l2vfg"]
 [ext_resource type="Script" path="res://Scripts/PickUp/pick_up.gd" id="6_f1kis"]
 [ext_resource type="PackedScene" uid="uid://b7v27m1qrf4cs" path="res://Scenes/PickUp/pick_up_ammo.tscn" id="7_3g337"]
-[ext_resource type="PackedScene" uid="uid://b4s3ktp77pxly" path="res://Scenes/Item/item.tscn" id="8_551pp"]
+[ext_resource type="PackedScene" uid="uid://b4s3ktp77pxly" path="res://Scenes/Inventory/item.tscn" id="8_551pp"]
 [ext_resource type="Texture2D" uid="uid://ctbccbq1yxiqt" path="res://Assets/bullets_assets/bullet.png" id="9_1obkr"]
 
 [node name="Main" type="Node2D"]

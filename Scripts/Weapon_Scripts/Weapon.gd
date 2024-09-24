@@ -10,7 +10,7 @@ const weapon_id = 876476543
 var ammo_name="weapon_ammo"
 
 @onready var marker_2d = $Marker2D  
-@onready var camera = get_node("/root/Game/Player/Camera2D")  # Reference to your Camera2D node
+@onready var camera = get_node("/root/Main/Player/Camera2D")  # Reference to your Camera2D node
 
 const BULLET = preload("res://Scenes/Bullets/rifle_bullet.tscn")
 

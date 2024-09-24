@@ -6,11 +6,12 @@ var Inventory=[]
 signal Inventory_Updated
 
 var player_Node: Node=null
+@onready var Inventory_slot_scene= preload("res://Scenes/Inventory/inventory_slot.tscn")
+
 
 func _ready() -> void:
 	Inventory.resize(10)
 	
-
 
 func Add_Item(Item):
 	for i in range(Inventory.size()):

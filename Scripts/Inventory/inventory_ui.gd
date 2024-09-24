@@ -13,7 +13,16 @@ func _process(delta: float) -> void:
 
 
 func on_inventory_update():
-	pass
+	clear_grid_container()
+	
+	for item in Global.Inventory:
+		var slot=Global.Inventory_slot_scene.instantiate()
+		grid_container.add_child(slot)
+		
+		if item != null:
+			slot.set_item(item)
+		else:
+			slot.set_empty()
 	
 
 func clear_grid_container():

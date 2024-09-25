@@ -26,6 +26,7 @@ func _on_item_button_mouse_exited() -> void:
 	details_panel.visible=false
 
 
+
 func set_empty():
 	item_icon.texture=null
 	item_quantity.text=""
@@ -35,12 +36,12 @@ func set_empty():
 func set_item(new_item):
 	item=new_item
 	item_icon.texture=new_item["texture"]
-	item_quantity.text=str(new_item["quantity"])
-	item_name.text=str(new_item["name"])
-	item_type.text=str(new_item["type"])
+	item_quantity.text=str(item["quantity"])
+	item_name.text=str(item["name"])
+	item_type.text=str(item["type"])
 	
 	if item["effect"] !="":
-		item_effect.text=str("+",item["effect"])
+		item_effect.text=str("+ ",item["effect"])
 	else:
 		item_effect.text=""
 	

@@ -1,15 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl357hmv71b3y"]
+[gd_scene load_steps=10 format=3 uid="uid://cl357hmv71b3y"]
 
 [ext_resource type="Texture2D" uid="uid://ctbccbq1yxiqt" path="res://Assets/bullets_assets/bullet.png" id="1_ko6uf"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="1_kwvoi"]
 
 [sub_resource type="SystemFont" id="SystemFont_ok3si"]
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j035s"]
 
+[sub_resource type="SystemFont" id="SystemFont_am56n"]
+
+[sub_resource type="SystemFont" id="SystemFont_olbgd"]
+
+[sub_resource type="SystemFont" id="SystemFont_kxvvt"]
+
 [sub_resource type="SystemFont" id="SystemFont_p3uun"]
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_xw28x"]
+subpixel_positioning = 0
 
 [node name="Inventory_slot" type="Control"]
 custom_minimum_size = Vector2(150, 150)
@@ -68,65 +77,71 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_j035s")
 
 [node name="DetailsPanel" type="ColorRect" parent="."]
 visible = false
+z_index = 1
 layout_mode = 0
-offset_top = -255.0
-offset_right = 450.0
-offset_bottom = -5.0
+offset_left = 160.0
+offset_top = 1.0
+offset_right = 460.0
+offset_bottom = 181.0
 color = Color(0.372549, 0.372549, 0.372549, 1)
 
 [node name="ItemName" type="Label" parent="DetailsPanel"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 65.0
-offset_bottom = 28.0
-scale = Vector2(2, 2)
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 89.0
+offset_bottom = 47.0
+theme_override_fonts/font = SubResource("SystemFont_am56n")
+theme_override_font_sizes/font_size = 20
 text = "NAME : "
 
 [node name="ItemType" type="Label" parent="DetailsPanel"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 60.0
-offset_right = 51.0
-offset_bottom = 83.0
-scale = Vector2(2, 2)
+offset_left = 16.0
+offset_top = 63.0
+offset_right = 74.0
+offset_bottom = 91.0
+theme_override_fonts/font = SubResource("SystemFont_olbgd")
+theme_override_font_sizes/font_size = 20
 text = "TYPE :"
 
 [node name="ItemEffect" type="Label" parent="DetailsPanel"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 120.0
-offset_right = 68.0
-offset_bottom = 143.0
-scale = Vector2(2, 2)
+offset_left = 13.0
+offset_top = 108.0
+offset_right = 92.0
+offset_bottom = 136.0
+theme_override_fonts/font = SubResource("SystemFont_kxvvt")
+theme_override_font_sizes/font_size = 20
 text = "EFFECT :"
 
 [node name="UsagePanel" type="ColorRect" parent="."]
 visible = false
+z_index = 1
 layout_mode = 0
-offset_top = -220.0
-offset_right = 250.0
-offset_bottom = -20.0
+offset_left = -160.0
+offset_right = -10.0
+offset_bottom = 171.0
 color = Color(0.262932, 0.262932, 0.262932, 1)
 
 [node name="UseButton" type="Button" parent="UsagePanel"]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 10.0
-offset_right = 235.0
-offset_bottom = 90.0
+offset_right = 135.0
+offset_bottom = 73.0
 theme_override_fonts/font = SubResource("SystemFont_p3uun")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "USE"
 
 [node name="DropButton" type="Button" parent="UsagePanel"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 100.0
-offset_right = 235.0
-offset_bottom = 180.0
+offset_left = 14.0
+offset_top = 87.0
+offset_right = 134.0
+offset_bottom = 150.0
 theme_override_fonts/font = SubResource("SystemFont_xw28x")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "DROP"
 
 [connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]

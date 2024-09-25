@@ -23,13 +23,13 @@ func Add_Item(Item):
 			Inventory[i]=Item
 			Inventory_Updated.emit()
 			return true
-		return false
+	return false
 
 	
 	
 
 
-func Remove_Item(Item):
+func Remove_Item(item_type,item_effect):
 	Inventory_Updated.emit()
 
 

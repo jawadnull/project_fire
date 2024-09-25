@@ -1,1 +1,1 @@
-extends Node2D# main node
+extends Node2D# main Node

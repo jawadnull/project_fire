@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7h28brkg6mr3"]
+[gd_scene load_steps=11 format=3 uid="uid://c7h28brkg6mr3"]
 
 [ext_resource type="Script" path="res://Scripts/Main/game.gd" id="1_f5vpd"]
 [ext_resource type="PackedScene" uid="uid://4p40menupcc3" path="res://Scenes/Characters/player.tscn" id="2_4mqcj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b7v27m1qrf4cs" path="res://Scenes/PickUp/pick_up_ammo.tscn" id="7_3g337"]
 [ext_resource type="PackedScene" uid="uid://b4s3ktp77pxly" path="res://Scenes/Inventory/item.tscn" id="8_551pp"]
 [ext_resource type="Texture2D" uid="uid://ctbccbq1yxiqt" path="res://Assets/bullets_assets/bullet.png" id="9_1obkr"]
+[ext_resource type="Texture2D" uid="uid://b6givmhgiqv6x" path="res://Assets/weapons_assets/gun.png" id="10_hl5u4"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_f5vpd")
@@ -58,3 +59,17 @@ Item_Name = "bullet"
 Item_Type = "ammo"
 Item_Effect = "kill"
 Item_Texture = ExtResource("9_1obkr")
+
+[node name="Item2" parent="." instance=ExtResource("8_551pp")]
+position = Vector2(-37, 291)
+Item_Name = "SHUTGUN"
+Item_Type = "GUN"
+Item_Effect = "Play ANNO Mutationem"
+Item_Texture = ExtResource("10_hl5u4")
+
+[node name="Item3" parent="." instance=ExtResource("8_551pp")]
+position = Vector2(-37, 291)
+Item_Name = "SHUTGUN"
+Item_Type = "SUBGUN"
+Item_Effect = "Play ANNO Mutationem"
+Item_Texture = ExtResource("10_hl5u4")

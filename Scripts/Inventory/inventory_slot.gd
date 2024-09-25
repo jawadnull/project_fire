@@ -7,6 +7,7 @@ extends Control
 @onready var item_type: Label = $DetailsPanel/ItemType
 @onready var item_effect: Label = $DetailsPanel/ItemEffect
 @onready var usage_panel: ColorRect = $UsagePanel
+@onready var details_icon: Sprite2D = $DetailsPanel/detailsIcon
 
 
 #slot Item
@@ -36,6 +37,7 @@ func set_empty():
 func set_item(new_item):
 	item=new_item
 	item_icon.texture=new_item["texture"]
+	details_icon.texture=new_item["texture"]
 	item_quantity.text=str(item["quantity"])
 	item_name.text=str(item["name"])
 	item_type.text=str(item["type"])
@@ -46,3 +48,14 @@ func set_item(new_item):
 		item_effect.text=""
 	
 	
+
+
+func _on_drop_button_pressed() -> void:
+	if item != null:
+		var drop_position= Global.player_Node.global_position
+		var drop_offset= Vector2(0,50)
+		drop_offset=drop_offset.rotated(Global.player_Node.rotation)
+		Global.drop_item(item, drop_position)
+		Global.remove_item(item["type"],item["effect"])
+		usage_panel.visible=false
+		

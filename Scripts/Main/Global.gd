@@ -39,7 +39,9 @@ func remove_item(item_type,item_effect):
 			return true
 	return false
 
-func Increase_Inventory_Size():
+func Increase_Inventory_Size(extra_slot):
+	
+	Inventory.resize(Inventory.size()+extra_slot)
 	Inventory_Updated.emit()
 	
 

@@ -142,3 +142,17 @@ func update_sprite_flip():
 		sprite.flip_h = true  # Flip the sprite to face left
 	else:
 		sprite.flip_h = false  # Default to facing right
+
+
+
+
+func apply_item_effect(item):
+	match item["effect"]:
+		"helth+10":
+			playerHelth+=10
+		"slot+5":
+			Global.Increase_Inventory_Size(5)
+		"ammo+10":
+			add_ammo_to_weapon(10,"weapon_ammo")
+		_:
+			print("can't use item here")

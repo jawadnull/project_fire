@@ -59,3 +59,13 @@ func _on_drop_button_pressed() -> void:
 		Global.remove_item(item["type"],item["effect"])
 		usage_panel.visible=false
 		
+
+
+func _on_use_button_pressed() -> void:
+	usage_panel.visible=false
+	if item != null and item["effect"]!="":
+		if Global.player_Node:
+			Global.player_Node.apply_item_effect(item)
+			Global.remove_item(item["type"],item["effect"])
+		else :
+			print("player not found")

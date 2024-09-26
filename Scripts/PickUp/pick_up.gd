@@ -3,7 +3,7 @@ extends Area2D
 const weapon_id=67644886;
 @export var weapon_scene = preload("res://Scenes/Weapons/weapon.tscn")  # The specific weapon scene
 @export var weapon_type= "rifle";
-
+@export var weapon_texture:Texture
 var player_in_area = false  # Keeps track of whether the player is in the pickup area
 
 # Detect when the player enters the area

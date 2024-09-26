@@ -57,9 +57,9 @@ position = Vector2(140, 53)
 position = Vector2(-161, 207)
 Item_Name = "bullet"
 Item_Type = "ammo"
-Item_Effect = "kill"
+Item_Effect = "ammo+10"
 Item_Texture = ExtResource("9_1obkr")
-ammount = 20
+ammount = 100
 
 [node name="Item2" parent="." instance=ExtResource("8_551pp")]
 position = Vector2(-37, 291)
@@ -70,9 +70,9 @@ Item_Texture = ExtResource("10_hl5u4")
 ammount = 1
 
 [node name="Item3" parent="." instance=ExtResource("8_551pp")]
-position = Vector2(-37, 291)
+position = Vector2(274, 295)
 Item_Name = "SHUTGUN"
 Item_Type = "SUBGUN"
-Item_Effect = "Play ANNO Mutationem"
+Item_Effect = "slot+5"
 Item_Texture = ExtResource("10_hl5u4")
 ammount = 1

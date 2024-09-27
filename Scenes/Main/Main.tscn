@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7h28brkg6mr3"]
+[gd_scene load_steps=9 format=3 uid="uid://c7h28brkg6mr3"]
 
-[ext_resource type="Script" path="res://Scripts/Main/game.gd" id="1_f5vpd"]
+[ext_resource type="Script" path="res://Scripts/Main/Main.gd" id="1_f5vpd"]
 [ext_resource type="PackedScene" uid="uid://4p40menupcc3" path="res://Scenes/Characters/player.tscn" id="2_4mqcj"]
 [ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="3_6vg2m"]
-[ext_resource type="PackedScene" uid="uid://g32u3ysi0xjr" path="res://Scenes/PickUp/pick_up.tscn" id="4_gyx4d"]
-[ext_resource type="PackedScene" uid="uid://dby8m8gt1rkpp" path="res://Scenes/PickUp/pick_up_rifle.tscn" id="5_l2vfg"]
-[ext_resource type="Script" path="res://Scripts/PickUp/pick_up.gd" id="6_f1kis"]
-[ext_resource type="PackedScene" uid="uid://b7v27m1qrf4cs" path="res://Scenes/PickUp/pick_up_ammo.tscn" id="7_3g337"]
+[ext_resource type="PackedScene" uid="uid://g32u3ysi0xjr" path="res://Scenes/PickUp/pickup_weapon.tscn" id="4_gyx4d"]
+[ext_resource type="PackedScene" uid="uid://co1gwvc7cedy8" path="res://Scenes/Weapons/Weapon.tscn" id="5_rpos2"]
 [ext_resource type="PackedScene" uid="uid://b4s3ktp77pxly" path="res://Scenes/Inventory/item.tscn" id="8_551pp"]
 [ext_resource type="Texture2D" uid="uid://ctbccbq1yxiqt" path="res://Assets/bullets_assets/bullet.png" id="9_1obkr"]
 [ext_resource type="Texture2D" uid="uid://b6givmhgiqv6x" path="res://Assets/weapons_assets/gun.png" id="10_hl5u4"]
@@ -40,19 +38,6 @@ texture = ExtResource("3_6vg2m")
 position = Vector2(-272, 201)
 texture = ExtResource("3_6vg2m")
 
-[node name="PickIpGun" parent="." instance=ExtResource("4_gyx4d")]
-position = Vector2(-419, -1)
-
-[node name="PickUpRifle" parent="." instance=ExtResource("5_l2vfg")]
-position = Vector2(-400, 165)
-script = ExtResource("6_f1kis")
-
-[node name="PickUp" parent="." instance=ExtResource("4_gyx4d")]
-position = Vector2(10, 117)
-
-[node name="PickUpAmmo" parent="." instance=ExtResource("7_3g337")]
-position = Vector2(140, 53)
-
 [node name="Item" parent="." instance=ExtResource("8_551pp")]
 position = Vector2(-161, 207)
 Item_Name = "bullet"
@@ -76,3 +61,14 @@ Item_Type = "SUBGUN"
 Item_Effect = "slot+5"
 Item_Texture = ExtResource("10_hl5u4")
 ammount = 1
+
+[node name="Item4" parent="." instance=ExtResource("8_551pp")]
+position = Vector2(-306, 3)
+Item_Name = "SHUTGUN"
+Item_Type = "weapon"
+Item_Texture = ExtResource("10_hl5u4")
+ammount = 1
+
+[node name="PickUp" parent="." instance=ExtResource("4_gyx4d")]
+position = Vector2(-533, 238)
+weapon_path = ExtResource("5_rpos2")

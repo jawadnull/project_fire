@@ -10,7 +10,7 @@ const weapon_id=876476543;
 @onready var marker_2d = $Marker2D  
 
 const BULLET = preload("res://Scenes/Bullets/rifle_bullet.tscn")
-@onready var camera =get_node("/root/Game/Player/Camera2D")  # Add a reference to your Camera2D node
+@onready var camera =get_node("/root/Main/Player/Camera2D")  # Add a reference to your Camera2D node
 
 var can_shoot = true
 var bulletDirection = Vector2(1, 0)  

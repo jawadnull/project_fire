@@ -154,5 +154,6 @@ func apply_item_effect(item):
 			Global.Increase_Inventory_Size(5)
 		"ammo+10":
 			add_ammo_to_weapon(10,"weapon_ammo")
+			item["quantity"]-=10
 		_:
 			print("can't use item here")

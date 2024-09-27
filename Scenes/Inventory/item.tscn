@@ -8,6 +8,9 @@
 scale = Vector2(4.68, 4.16)
 script = ExtResource("1_osryc")
 ammount = null
+weapon_id = null
+weapon_scene = null
+weapon_type = null
 
 [node name="Area2D" type="Area2D" parent="."]
 

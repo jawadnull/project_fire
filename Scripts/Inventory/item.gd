@@ -10,6 +10,7 @@ var Scene_Path="res://Scenes/Inventory/item.tscn"
 
 @onready var Icone_Sprite: Sprite2D = $Sprite2D
 
+
 var Player_In_range=null
 
 # Called when the node enters the scene tree for the first time.
@@ -38,6 +39,7 @@ func pickup_item():
 	if Global.player_Node:
 		Global.Add_Item(Item)
 		self.queue_free()
+
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

@@ -6,7 +6,6 @@ var recoil_speed = 10.0
 var max_recoil_distance = 10.0  
 var shoot_timer = 0.1
 const weapon_type = "rifles"
-const weapon_id = 876476543
 var ammo_name="weapon_ammo"
 
 @onready var marker_2d = $Marker2D  

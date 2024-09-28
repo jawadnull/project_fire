@@ -6,7 +6,7 @@ var recoil_speed = 10.0
 var max_recoil_distance = 10.0  
 var shoot_timer = 0.1
 const weapon_type = "rifles"
-var ammo_name="weapon_ammo"
+var ammo_weapon_name="weapon_ammo"
 
 @onready var marker_2d = $Marker2D  
 @onready var camera = get_node("/root/Main/Player/Camera2D")  # Reference to your Camera2D node

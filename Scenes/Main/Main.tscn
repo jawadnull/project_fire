@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b6givmhgiqv6x" path="res://Assets/weapons_assets/gun.png" id="10_hl5u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6h2"]
-size = Vector2(641.352, 526.926)
+size = Vector2(2515.43, 1942.42)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_f5vpd")
@@ -34,6 +34,6 @@ weapon_texture = ExtResource("10_hl5u4")
 [node name="ItemsSpwanArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemsSpwanArea"]
-position = Vector2(1, 1)
+position = Vector2(2, -1)
 scale = Vector2(1.28615, 1.18491)
 shape = SubResource("RectangleShape2D_0u6h2")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://4p40menupcc3"]
+[gd_scene load_steps=11 format=3 uid="uid://4p40menupcc3"]
 
 [ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="1_gmhju"]
 [ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="1_n71t6"]
 [ext_resource type="Script" path="res://Scripts/Weapon_Scripts/weapon_manager.gd" id="3_5ba1k"]
+[ext_resource type="PackedScene" uid="uid://dmsa1t360joqo" path="res://Scenes/Components/HealthBar.tscn" id="3_khnq4"]
 [ext_resource type="PackedScene" uid="uid://ptw0gj1wbt4p" path="res://Scenes/Inventory/inventory_ui.tscn" id="4_oliao"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrvk2"]
@@ -41,6 +42,17 @@ animation = &"idle_right"
 shape = SubResource("CapsuleShape2D_m5qq5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HealthBar" parent="Camera2D" instance=ExtResource("3_khnq4")]
+z_index = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -544.0
+offset_top = -306.0
+offset_right = -452.0
+offset_bottom = -243.0
+grow_vertical = 0
 
 [node name="WeaponManager" type="Node2D" parent="."]
 script = ExtResource("3_5ba1k")

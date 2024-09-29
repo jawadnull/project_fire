@@ -22,7 +22,7 @@ Item_Name = "bullet"
 Item_Type = "ammo"
 Item_Effect = "ammo+10"
 Item_Texture = ExtResource("9_1obkr")
-ammount = 100
+Item_ammount = null
 
 [node name="PickUp" parent="." instance=ExtResource("4_gyx4d")]
 position = Vector2(-533, 238)

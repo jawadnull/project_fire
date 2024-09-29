@@ -5,7 +5,7 @@ extends Node2D
 @export var Item_Type=""
 @export var Item_Effect=""
 @export var Item_Texture:Texture
-@export var ammount=0
+@export var Item_ammount=0
 var Scene_Path="res://Scenes/Inventory/item.tscn"
 
 @onready var Icone_Sprite: Sprite2D = $Sprite2D
@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 
 func pickup_item():
 	var Item={
-		"quantity":ammount,
+		"quantity":Item_ammount,
 		"name":Item_Name,
 		"type":Item_Type,
 		"texture":Item_Texture,
@@ -61,3 +61,11 @@ func set_item_data(data):
 	Item_Effect=data["effect"]
 	Item_Texture=data["texture"]
 	
+
+
+func initiate_items(type,name,effect,texture,ammount):
+	Item_Type=type
+	Item_Name=name
+	Item_Effect=effect
+	Item_Texture=texture
+	Item_ammount=ammount

@@ -8,6 +8,7 @@ signal Inventory_Updated
 var player_Node: Node=null
 @onready var Inventory_slot_scene= preload("res://Scenes/Inventory/inventory_slot.tscn")
 
+var spawnble_items=[{"name":"rifle_ammo","type":"consumable","effect":"ammo+10","texture":preload("res://Assets/bullets_assets/bullet.png"),"quantity":10}]
 
 func _ready() -> void:
 	Inventory.resize(10)

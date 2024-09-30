@@ -3,7 +3,7 @@ extends Area2D
 
 signal recived_damage(damage:int)
 
-var health: Health 
+@export var health: Health 
 
 func _ready() -> void:
 	connect("area_enterd",_on_area_entered)

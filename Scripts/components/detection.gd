@@ -8,6 +8,7 @@ extends Area2D
 @export var line_of_sight_check_interval = 0.1  # Interval for line of sight checks
 @export var alert_stop_time = 5.0  # Time in seconds for the alert to stop after player is lost
 var is_player_detected = false
+var player
 var alert_timer: Timer
 var los_timer: Timer  # Timer for line of sight checks
 var countdown_timer: Timer  # Timer for alert stop countdown
@@ -38,6 +39,7 @@ func _ready():
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		print("Player detected!")
+		player=body
 		start_alert()
 
 # Called when a body exits the detection area

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7h28brkg6mr3"]
+[gd_scene load_steps=10 format=3 uid="uid://c7h28brkg6mr3"]
 
 [ext_resource type="Script" path="res://Scripts/Main/Main.gd" id="1_f5vpd"]
 [ext_resource type="PackedScene" uid="uid://4p40menupcc3" path="res://Scenes/Characters/player.tscn" id="2_4mqcj"]
 [ext_resource type="PackedScene" uid="uid://g32u3ysi0xjr" path="res://Scenes/PickUp/pickup_weapon.tscn" id="4_gyx4d"]
 [ext_resource type="PackedScene" uid="uid://co1gwvc7cedy8" path="res://Scenes/Weapons/Weapon.tscn" id="5_rpos2"]
 [ext_resource type="PackedScene" uid="uid://b4s3ktp77pxly" path="res://Scenes/Inventory/item.tscn" id="8_551pp"]
+[ext_resource type="PackedScene" uid="uid://du3msml04tlv1" path="res://Scenes/Enemis/walker.tscn" id="8_heg8l"]
 [ext_resource type="Texture2D" uid="uid://ctbccbq1yxiqt" path="res://Assets/bullets_assets/bullet.png" id="9_1obkr"]
 [ext_resource type="Texture2D" uid="uid://b6givmhgiqv6x" path="res://Assets/weapons_assets/gun.png" id="10_hl5u4"]
 
@@ -37,3 +38,6 @@ weapon_texture = ExtResource("10_hl5u4")
 position = Vector2(2, -1)
 scale = Vector2(1.28615, 1.18491)
 shape = SubResource("RectangleShape2D_0u6h2")
+
+[node name="Walker" parent="." instance=ExtResource("8_heg8l")]
+position = Vector2(-301, -3)

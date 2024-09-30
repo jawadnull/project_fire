@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://du3msml04tlv1"]
+
+[ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="1_ixuv8"]
+[ext_resource type="Script" path="res://Scripts/Enemis/walker.gd" id="1_xiq0y"]
+[ext_resource type="Script" path="res://Scripts/components/hitBox.gd" id="2_ibrb3"]
+[ext_resource type="Script" path="res://Scripts/components/detection.gd" id="4_fswhl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glsw1"]
+atlas = ExtResource("1_ixuv8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_timh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glsw1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_65n34"]
+radius = 13.0
+height = 114.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwjxa"]
+radius = 12.0
+height = 104.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lf52a"]
+radius = 291.556
+
+[node name="Walker" type="CharacterBody2D"]
+script = ExtResource("1_xiq0y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(1.82813, 1.92188)
+sprite_frames = SubResource("SpriteFrames_timh0")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_65n34")
+
+[node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("2_ibrb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_mwjxa")
+
+[node name="Detection" type="Area2D" parent="." groups=["Player"]]
+script = ExtResource("4_fswhl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(3, 1)
+shape = SubResource("CircleShape2D_lf52a")
+
+[connection signal="body_entered" from="Detection" to="Detection" method="_on_body_entered"]
+[connection signal="body_exited" from="Detection" to="Detection" method="_on_body_exited"]

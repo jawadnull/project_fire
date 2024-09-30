@@ -1,3 +1,4 @@
+class_name Health
 extends TextureProgressBar
 
 

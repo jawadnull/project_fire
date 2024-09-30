@@ -1,11 +1,14 @@
-extends Node
+class_name HurtBox
+extends Area2D
 
+signal recived_damage(damage:int)
 
-# Called when the node enters the scene tree for the first time.
+var health: Health 
+
 func _ready() -> void:
-	pass # Replace with function body.
+	connect("area_enterd",_on_area_entered)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_area_entered(hitbox:HitBox)->void:
+	if hitbox != null:
+		health.health-=hitbox.damage 
+		recived_damage.emit(hitbox.damage)

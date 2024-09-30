@@ -17,7 +17,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qrvk2")
 }],
 "loop": true,
-"name": &"idle_right",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -33,10 +33,10 @@ height = 100.0
 process_mode = 3
 script = ExtResource("1_n71t6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_a1rnw")
-animation = &"idle_right"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_m5qq5")

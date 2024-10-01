@@ -1,7 +1,6 @@
 extends Area2D  # Bullet
 
 @export var speed = 2000  # Bullet speed (adjust as needed)
-@export var damage = 100  # Damage the bullet deals
 
 var direction = Vector2.ZERO  # Bullet movement direction
 
@@ -22,5 +21,4 @@ func _physics_process(delta):
 # Handle collisions with enemies or other objects
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
-		body.take_damage(damage)  # Apply damage to the enemy
 		queue_free()  # Destroy the bullet after impact

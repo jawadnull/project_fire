@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://du3msml04tlv1"]
+[gd_scene load_steps=13 format=3 uid="uid://du3msml04tlv1"]
 
 [ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="1_ixuv8"]
 [ext_resource type="Script" path="res://Scripts/Enemis/walker.gd" id="1_xiq0y"]
 [ext_resource type="Script" path="res://Scripts/components/hurtBox.gd" id="4_1smsv"]
 [ext_resource type="Script" path="res://Scripts/components/detection.gd" id="4_fswhl"]
-[ext_resource type="Script" path="res://Scripts/components/health_bar.gd" id="5_wriew"]
+[ext_resource type="PackedScene" uid="uid://dmsa1t360joqo" path="res://Scenes/Components/HealthBar.tscn" id="6_fyajp"]
+[ext_resource type="Script" path="res://Scripts/components/hitBox.gd" id="6_vihg7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_glsw1"]
 atlas = ExtResource("1_ixuv8")
@@ -32,7 +33,13 @@ radius = 291.556
 radius = 14.0
 height = 108.0
 
-[node name="Walker" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdepv"]
+radius = 13.0
+height = 110.0
+
+[node name="Walker" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_xiq0y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -53,18 +60,28 @@ shape = SubResource("CircleShape2D_lf52a")
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 collision_layer = 0
+collision_mask = 2
 script = ExtResource("4_1smsv")
-health = NodePath("../Health")
+health = NodePath("../HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_tdvok")
 
-[node name="Health" type="TextureProgressBar" parent="."]
-offset_left = -118.0
-offset_top = 86.0
-offset_right = 19.0
-offset_bottom = 115.0
-script = ExtResource("5_wriew")
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("6_vihg7")
+damage = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_rdepv")
+
+[node name="HealthBar" parent="." instance=ExtResource("6_fyajp")]
+offset_left = -25.0
+offset_top = -88.0
+offset_right = 30.0
+offset_bottom = -56.0
+value = 100.0
 
 [connection signal="body_entered" from="Detection" to="Detection" method="_on_body_entered"]
 [connection signal="body_exited" from="Detection" to="Detection" method="_on_body_exited"]

@@ -1,14 +1,17 @@
 class_name HurtBox
 extends Area2D
 
-signal recived_damage(damage:int)
+signal received_damage(damage: int)  # Signal for when damage is received
 
-@export var health: Health 
+@export var health: HealthBar  # Reference to the Health component
+
 
 func _ready() -> void:
-	connect("area_enterd",_on_area_entered)
+	self.connect("area_entered", Callable(self, "_on_area_entered"))
 
-func _on_area_entered(hitbox:HitBox)->void:
-	if hitbox != null:
-		health.health-=hitbox.damage 
-		recived_damage.emit(hitbox.damage)
+func _on_area_entered(area: Area2D) -> void:
+	if area is HitBox:
+		var hitbox = area as HitBox
+		print("bullet entered")
+		health.set_health(health.get_health() - hitbox.damage)
+		emit_signal("received_damage", hitbox.damage)

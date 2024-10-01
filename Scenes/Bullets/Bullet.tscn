@@ -22,9 +22,12 @@ texture = ExtResource("2_yiq63")
 position = Vector2(8, -0.5)
 shape = SubResource("RectangleShape2D_7b0n5")
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." groups=["enemies"]]
 script = ExtResource("3_d4who")
+damage = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(8, -1)
 shape = SubResource("RectangleShape2D_ugo80")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -9,8 +9,6 @@ const DECELERATION = 1400
 const SHAKE_INTENSITY = 8  # How intense the shake is
 const SHAKE_DURATION = 0.1  # How long the shake lasts
 
-@export var playerHelth = 100
-
 var is_walking = false
 var last_direction = Vector2.ZERO
 var is_dashing = false
@@ -25,11 +23,13 @@ var shake_timer = 0.0
 @onready var sprite = $AnimatedSprite2D
 @onready var interactive_ui: CanvasLayer = $InteractiveUI
 @onready var inventory_ui: CanvasLayer = $Inventory_UI
+@onready var hurtbox: HurtBox = $HurtBox  # Reference to the HurtBox
+@onready var health: HealthBar = $Camera2D/HealthBar
 
 #refrence player in global script
 func _ready() -> void:
 	Global.set_player_refrence(self)
-	
+	hurtbox.connect("received_damage", Callable(self, "_on_received_damage"))
 
 
 
@@ -149,7 +149,7 @@ func update_sprite_flip():
 func apply_item_effect(item):
 	match item["effect"]:
 		"helth+10":
-			playerHelth+=10
+			health.health+=10
 		"slot+5":
 			Global.Increase_Inventory_Size(5)
 		"ammo+10":
@@ -157,3 +157,24 @@ func apply_item_effect(item):
 			item["quantity"]-=10
 		_:
 			print("can't use item here")
+
+
+
+func _on_received_damage(damage: int) -> void:
+	health.set_health(health.get_health() - damage)
+
+	# If player's health reaches 0, trigger death
+	if health.get_health() <= 0:
+		_on_player_death()
+	else:
+		# Apply knockback effect
+		apply_knockback()
+
+func apply_knockback():
+	var knockback_force = -last_direction.normalized() * 200  # Adjust the multiplier for knockback intensity
+	velocity = knockback_force  # Apply knockback to the player's velocity
+
+
+func _on_player_death():
+	# Handle player death (e.g., respawn, game over)
+	queue_free()  # You could add respawn or game over logic here

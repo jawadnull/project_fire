@@ -6,7 +6,6 @@
 script/source = "extends Area2D  # Bullet
 
 @export var speed = 2000  # Bullet speed (adjust as needed)
-@export var damage = 100  # Damage the bullet deals
 
 var direction = Vector2.ZERO  # Bullet movement direction
 
@@ -24,12 +23,14 @@ func _physics_process(delta):
 	# Move the bullet in the set direction with constant speed
 	global_position += direction * speed * delta
 
-# Handle collisions with enemies or other objects
 func _on_body_entered(body):
 	if body.is_in_group(\"enemies\"):
-		body.take_damage(damage)  # Apply damage to the enemy
 		queue_free()  # Destroy the bullet after impact
 "
 
 [node name="rifle_bullet" instance=ExtResource("1_femg5")]
 script = SubResource("GDScript_208hv")
+
+[node name="HitBox" parent="." index="2"]
+collision_layer = 2
+collision_mask = 0

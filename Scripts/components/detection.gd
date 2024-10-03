@@ -38,20 +38,20 @@ func _ready():
 # Called when a body enters the detection area
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		print("Player detected!")
+		#print("Player detected!")
 		player=body
 		start_alert()
 
 # Called when a body exits the detection area
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		print("Player lost!")
+		#print("Player lost!")
 		stop_alert()  # Start the alert stop countdown
 
 # Start alert and start checking line of sight
 func start_alert() -> void:
 	if not is_player_detected:  # Only start alert if not already in alert state
-		print("Alert started!")
+		#print("Alert started!")
 		is_player_detected = true
 		alert_timer.start()
 		if requires_line_of_sight:
@@ -60,13 +60,13 @@ func start_alert() -> void:
 # Stop alert and start countdown for stopping the alert
 func stop_alert() -> void:
 	if is_player_detected:
-		print("Stopping alert countdown...")
+		#print("Stopping alert countdown...")
 		countdown_timer.start()  # Start the countdown timer
 
 # Final stop alert function after countdown
 func stop_alert_final() -> void:
 	if is_player_detected:
-		print("Alert stopped!")  # Debug statement
+		#print("Alert stopped!")  # Debug statement
 		is_player_detected = false
 		alert_timer.stop()  # Stop alert timer
 		los_timer.stop()  # Stop line of sight checks
@@ -79,7 +79,7 @@ func _on_alert_timeout() -> void:
 func check_line_of_sight() -> void:
 	if Global.player_Node and is_instance_valid(Global.player_Node):
 		if not has_line_of_sight():
-			print("Line of sight lost!")
+			#print("Line of sight lost!")
 			stop_alert()  # Stop alert if line of sight is lost
 
 # Check for line of sight
@@ -89,7 +89,7 @@ func has_line_of_sight() -> bool:
 		var ray_query = PhysicsRayQueryParameters2D.create(global_position, Global.player_Node.global_position)
 		ray_query.exclude = [self, Global.player_Node]  # Exclude the enemy itself and the player from the raycast
 		
-		print("Raycasting from:", global_position, "to:", Global.player_Node.global_position)  # Debug output
+		#print("Raycasting from:", global_position, "to:", Global.player_Node.global_position)  # Debug output
 
 		var result = space_state.intersect_ray(ray_query)
 		if result.is_empty():

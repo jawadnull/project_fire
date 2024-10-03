@@ -18,6 +18,12 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 Global="*res://Scripts/Main/Global.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/vsync/vsync_mode=2
+
 [dotnet]
 
 project/assembly_name="project_fire"

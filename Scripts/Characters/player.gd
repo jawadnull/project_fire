@@ -5,10 +5,13 @@ const DASH_SPEED = 2000
 const DASH_DURATION = 0.2 
 const DASH_COOLDOWN = 0.5  
 const ACCELERATION = 1800  
-const DECELERATION = 1400  
+const DECELERATION = 1800  
 const SHAKE_INTENSITY = 8  # How intense the shake is
 const SHAKE_DURATION = 0.1  # How long the shake lasts
 
+var knockback_power: int = 50
+var knockback = Vector2.ZERO  # Store the knockback vector
+var knockback_timer = 0.0  # Timer to track knockback duration
 var is_walking = false
 var last_direction = Vector2.ZERO
 var is_dashing = false
@@ -34,10 +37,20 @@ func _ready() -> void:
 
 
 func _physics_process(delta):
-	handle_input(delta)
 
-	# Move the character using the built-in velocity property
+	# Handle knockback
+	if knockback_timer > 0:
+		knockback_timer -= delta  # Decrease the timer
+		velocity += knockback  # Apply the knockback to the velocity
+		knockback = knockback.lerp(Vector2.ZERO, 0.1)  # Decay the knockback over time
+		if knockback.length() < 1:  # Stop applying knockback when it is negligible
+			knockback = Vector2.ZERO
+			knockback_timer = 0.0  # Reset timer
+	else:
+		# Only move and slide if not knocked back
+		handle_input(delta)  # Move the player
 	move_and_slide()
+
 
 	# Update dash timer
 	if dash_timer > 0:
@@ -160,7 +173,7 @@ func apply_item_effect(item):
 
 
 
-func _on_received_damage(damage: int) -> void:
+func _on_received_damage(damage: int, attacker_position: Vector2) -> void:
 	health.set_health(health.get_health() - damage)
 
 	# If player's health reaches 0, trigger death
@@ -168,11 +181,14 @@ func _on_received_damage(damage: int) -> void:
 		_on_player_death()
 	else:
 		# Apply knockback effect
-		apply_knockback()
+		apply_knockback(attacker_position)
 
-func apply_knockback():
-	var knockback_force = -last_direction.normalized() * 200  # Adjust the multiplier for knockback intensity
-	velocity = knockback_force  # Apply knockback to the player's velocity
+
+func apply_knockback(attacker_position):
+	knockback = -last_direction.normalized() * knockback_power 
+	knockback_timer = 0.2
+	print("Knockback: ", knockback)  # Debug knockback vector
+
 
 
 func _on_player_death():

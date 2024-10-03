@@ -49,10 +49,10 @@ shape = SubResource("CapsuleShape2D_m5qq5")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("3_khnq4")]
-offset_left = -565.0
-offset_top = -315.0
-offset_right = -460.0
-offset_bottom = -258.0
+offset_left = -938.0
+offset_top = -520.0
+offset_right = -833.0
+offset_bottom = -463.0
 max_value = 1000.0
 value = 1000.0
 max_health = 1000

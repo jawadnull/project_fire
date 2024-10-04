@@ -14,4 +14,4 @@ func _on_area_entered(area: Area2D) -> void:
 		var hitbox = area as HitBox
 		print("bullet entered")
 		health.set_health(health.get_health() - hitbox.damage)
-		emit_signal("received_damage", hitbox.damage, global_position)
+		emit_signal("received_damage", hitbox.damage, area.global_position)

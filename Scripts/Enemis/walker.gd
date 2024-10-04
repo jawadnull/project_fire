@@ -55,10 +55,10 @@ func _on_received_damage(damage: int,attacker_position: Vector2) -> void:
 
 
 func apply_knockback(attacker_position):
-	knockback = Vector2(0, -knockback_power) -attacker_position
-	knockback_timer = 0.2
-	print("Knockback: ", knockback)  # Debug knockback vector
-
+	# Calculate the direction from the attacker to the player
+	var knockback_direction = (global_position - attacker_position).normalized()
+	knockback = knockback_direction * knockback_power
+	knockback_timer = 0.2  # Set duration for knockback effect
 
 
 

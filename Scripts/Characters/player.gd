@@ -1,24 +1,24 @@
 extends CharacterBody2D
 
-const MOVE_SPEED = 400
-const DASH_SPEED = 2000 
-const DASH_DURATION = 0.2 
-const DASH_COOLDOWN = 0.5  
-const ACCELERATION = 1800  
-const DECELERATION = 1800  
-const SHAKE_INTENSITY = 8  # How intense the shake is
-const SHAKE_DURATION = 0.1  # How long the shake lasts
+const MOVE_SPEED: int = 400
+const DASH_SPEED: int = 2000 
+const DASH_DURATION: int = 0.2 
+const DASH_COOLDOWN: int = 0.5  
+const ACCELERATION: int = 1800  
+const DECELERATION: int = 1800  
+const SHAKE_INTENSITY: int = 8  
+const SHAKE_DURATION: int = 0.1  
 
 var knockback_power: int = 50
-var knockback = Vector2.ZERO  # Store the knockback vector
-var knockback_timer = 0.0  # Timer to track knockback duration
-var is_walking = false
-var last_direction = Vector2.ZERO
-var is_dashing = false
-var dash_timer = 0.0
-var cooldown_timer = 0.0
-var current_speed = 0.0  # Player's current movement speed
-var shake_timer = 0.0
+var knockback = Vector2.ZERO  
+var knockback_timer = 0.0  # dont change the type let it be dtnamic
+var is_walking:bool = false
+var last_direction:Vector2 = Vector2.ZERO
+var is_dashing:bool = false
+var dash_timer: int = 0.0
+var cooldown_timer: int = 0.0
+var current_speed: int = 0.0  
+var shake_timer: int = 0.0
 
 @onready var weapon_manager = $WeaponManager
 @onready var weapon_parent = weapon_manager.get_node("WeaponHolder") 

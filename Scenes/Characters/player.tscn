@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://4p40menupcc3"]
+[gd_scene load_steps=15 format=3 uid="uid://4p40menupcc3"]
 
 [ext_resource type="Texture2D" uid="uid://bpuny74f763pw" path="res://Assets/Characters/main-charchter.png" id="1_gmhju"]
 [ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="1_n71t6"]
 [ext_resource type="Script" path="res://Scripts/Weapon_Scripts/weapon_manager.gd" id="3_5ba1k"]
 [ext_resource type="PackedScene" uid="uid://dmsa1t360joqo" path="res://Scenes/Components/HealthBar.tscn" id="3_khnq4"]
 [ext_resource type="PackedScene" uid="uid://ptw0gj1wbt4p" path="res://Scenes/Inventory/inventory_ui.tscn" id="4_oliao"]
+[ext_resource type="Texture2D" uid="uid://bk6yjyef3cm1d" path="res://Assets/GUI.png" id="5_bx5p4"]
 [ext_resource type="Script" path="res://Scripts/components/hurtBox.gd" id="6_xtfsb"]
+[ext_resource type="Texture2D" uid="uid://b53khrgtybpr7" path="res://Assets/slot.png" id="7_s3s0q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrvk2"]
 atlas = ExtResource("1_gmhju")
@@ -95,31 +97,44 @@ theme_override_font_sizes/font_size = 30
 text = "PRESS 'F' TO PICK UP"
 
 [node name="Inventory_UI" type="CanvasLayer" parent="."]
-visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Inventory_UI"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Inventory_UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.318617, 0.0229853, 0.0940791, 1)
+texture = ExtResource("5_bx5p4")
+region_rect = Rect2(3.45094, 98.5335, 41.1807, 27.4728)
 
-[node name="Label" type="Label" parent="Inventory_UI/ColorRect"]
+[node name="Label" type="Label" parent="Inventory_UI/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -45.5
-offset_top = 50.0
-offset_right = 45.5
-offset_bottom = 73.0
+offset_left = -169.0
+offset_right = 169.0
+offset_bottom = 83.0
 grow_horizontal = 2
 theme_override_fonts/font = SubResource("FontVariation_7tv2w")
 theme_override_font_sizes/font_size = 60
 text = "INVENTORY"
 
-[node name="Inventory_UI" parent="Inventory_UI/ColorRect" instance=ExtResource("4_oliao")]
+[node name="Inventory_UI" parent="Inventory_UI/NinePatchRect" instance=ExtResource("4_oliao")]
+
+[node name="details" type="NinePatchRect" parent="Inventory_UI"]
+anchors_preset = -1
+anchor_left = 0.761
+anchor_top = 0.506
+anchor_right = 0.761
+anchor_bottom = 0.506
+offset_left = -299.12
+offset_top = -369.48
+offset_right = 300.88
+offset_bottom = 369.52
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("7_s3s0q")
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 collision_layer = 0

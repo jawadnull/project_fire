@@ -5,9 +5,9 @@ extends CharacterBody2D
 @onready var health: HealthBar = $HealthBar  # Reference to the Health node
 @onready var hurtbox: HurtBox = $HurtBox  # Reference to the HurtBox
 
-var knockback_power = 200
-var speed = 100
-var dead = false
+var knockback_power: int = 200
+var speed: int = 100
+var dead:bool = false
 var knockback = Vector2.ZERO  # Store the knockback vector
 var knockback_timer = 0.0  # Timer to track knockback duration
 

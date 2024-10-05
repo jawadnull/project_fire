@@ -1,7 +1,7 @@
 extends Control
 
-@onready var item_icon: Sprite2D = $innerBorder/ItemIcon
-@onready var item_quantity: Label = $innerBorder/ItemQuantity
+@onready var item_icon: Sprite2D = $background/ItemIcon
+@onready var item_quantity: Label = $background/ItemQuantity
 @onready var details_panel: ColorRect = $DetailsPanel
 @onready var item_name: Label = $DetailsPanel/ItemName
 @onready var item_type: Label = $DetailsPanel/ItemType

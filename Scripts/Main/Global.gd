@@ -11,7 +11,7 @@ var player_Node: Node=null
 var spawnble_items=[{"name":"rifle_ammo","type":"consumable","effect":"ammo+10","texture":preload("res://Assets/bullets_assets/bullet.png"),"quantity":10}]
 
 func _ready() -> void:
-	Inventory.resize(10)
+	Inventory.resize(50)
 	
 
 func Add_Item(Item):

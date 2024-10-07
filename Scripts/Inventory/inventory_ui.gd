@@ -1,6 +1,6 @@
 extends Control
 
-@onready var grid_container: GridContainer = $ScrollContainer/GridContainer
+@onready var grid_container: GridContainer = $ScrollContainer/MarginContainer/GridContainer
 @onready var scroll_container: ScrollContainer = $ScrollContainer
 
 # Called when the node enters the scene tree for the first time.

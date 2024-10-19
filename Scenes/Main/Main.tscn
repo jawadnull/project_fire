@@ -26,6 +26,7 @@ Item_ammount = null
 [node name="PickUp" parent="." instance=ExtResource("4_gyx4d")]
 position = Vector2(-533, 238)
 weapon_path = ExtResource("5_rpos2")
+weapon_name = "rifle"
 weapon_texture = ExtResource("10_hl5u4")
 
 [node name="Items" type="Node2D" parent="."]

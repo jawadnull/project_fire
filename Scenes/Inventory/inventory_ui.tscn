@@ -19,7 +19,7 @@ script = ExtResource("1_adc5v")
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 offset_right = 900.0
-offset_bottom = 600.0
+offset_bottom = 800.0
 follow_focus = true
 scroll_horizontal_custom_step = 20.0
 scroll_vertical_custom_step = 10.0
@@ -28,7 +28,7 @@ scroll_vertical_custom_step = 10.0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10

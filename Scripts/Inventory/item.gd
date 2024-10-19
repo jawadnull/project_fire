@@ -1,4 +1,4 @@
-@tool
+@tool # item
 extends Node2D
 
 @export var Item_Name=""

@@ -1,14 +1,10 @@
-extends Control
+extends Control # inventory  slot
 
 @onready var item_icon: Sprite2D = $background/ItemIcon
 @onready var item_quantity: Label = $background/ItemQuantity
-@onready var details_panel: ColorRect = $DetailsPanel
-@onready var item_name: Label = $DetailsPanel/ItemName
-@onready var item_type: Label = $DetailsPanel/ItemType
-@onready var item_effect: Label = $DetailsPanel/ItemEffect
 @onready var usage_panel: ColorRect = $UsagePanel
-@onready var details_icon: Sprite2D = $DetailsPanel/detailsIcon
 
+signal mouse_entered_item(new_item)
 
 #slot Item
 var item=null
@@ -16,15 +12,17 @@ var item=null
 
 func _on_item_button_pressed() -> void:
 	if item != null:
-		usage_panel.visible=true
+		usage_panel.visible=!usage_panel.visible
+		
 
 func _on_item_button_mouse_entered() -> void:
 	if item != null:
-		usage_panel.visible=false
-		details_panel.visible=true
+		emit_signal("mouse_entered_item", item)
 
-func _on_item_button_mouse_exited() -> void:
-	details_panel.visible=false
+
+
+
+
 
 
 
@@ -37,27 +35,29 @@ func set_empty():
 func set_item(new_item):
 	item=new_item
 	item_icon.texture=new_item["texture"]
-	details_icon.texture=new_item["texture"]
-	item_quantity.text=str(item["quantity"])
-	item_name.text=str(item["name"])
-	item_type.text=str(item["type"])
 	
-	if item["effect"] !="":
-		item_effect.text=str("+ ",item["effect"])
+	if new_item["quantity"] > 0:
+		item_quantity.text = str(new_item["quantity"])
 	else:
-		item_effect.text=""
+		item_quantity.text = ""
+		
 	
-	
+
 
 
 func _on_drop_button_pressed() -> void:
 	if item != null:
+		
 		var drop_position= Global.player_Node.global_position
 		var drop_offset= Vector2(0,50)
 		drop_offset=drop_offset.rotated(Global.player_Node.rotation)
-		Global.drop_item(item, drop_position)
-		Global.remove_item(item["type"],item["effect"])
-		usage_panel.visible=false
+		if item.has("effect"):
+			Global.drop_item(item, drop_position)
+			Global.remove_item(item["type"],item["effect"])
+		elif item.has("id"):
+			Global.drop_weapon(item, drop_position)
+			Global.remove_item(item["type"],item["id"])
+		usage_panel.visible=false 
 		
 
 

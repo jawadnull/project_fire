@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl357hmv71b3y"]
+[gd_scene load_steps=8 format=3 uid="uid://cl357hmv71b3y"]
 
 [ext_resource type="Texture2D" uid="uid://ctbccbq1yxiqt" path="res://Assets/bullets_assets/bullet.png" id="1_ko6uf"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="1_kwvoi"]
@@ -7,16 +7,7 @@
 [sub_resource type="SystemFont" id="SystemFont_ok3si"]
 subpixel_positioning = 0
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_y78xm"]
-
-[sub_resource type="SystemFont" id="SystemFont_am56n"]
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_olbgd"]
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_kxvvt"]
-subpixel_positioning = 0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fwl05"]
 
 [sub_resource type="SystemFont" id="SystemFont_p3uun"]
 subpixel_positioning = 0
@@ -36,15 +27,15 @@ script = ExtResource("1_kwvoi")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -89.0
-offset_top = -82.0
-offset_right = 89.0
-offset_bottom = 82.0
+anchors_preset = -1
+anchor_left = -0.093
+anchor_top = 0.051
+anchor_right = -0.093
+anchor_bottom = 0.051
+offset_left = -0.0499992
+offset_top = -14.65
+offset_right = 177.95
+offset_bottom = 149.35
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_d0dxh")
@@ -73,102 +64,51 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
+offset_left = -9.0
 offset_top = -4.0
-offset_right = 1.0
-offset_bottom = -4.0
+offset_right = 12.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxLine_y78xm")
-
-[node name="DetailsPanel" type="ColorRect" parent="."]
-visible = false
-z_index = 1
-layout_mode = 0
-offset_left = 160.0
-offset_top = -20.0
-offset_right = 473.0
-offset_bottom = 434.0
-color = Color(0.372549, 0.372549, 0.372549, 1)
-
-[node name="ItemName" type="Label" parent="DetailsPanel"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 19.0
-offset_right = 89.0
-offset_bottom = 47.0
-theme_override_fonts/font = SubResource("SystemFont_am56n")
-theme_override_font_sizes/font_size = 20
-text = "NAME : "
-
-[node name="ItemType" type="Label" parent="DetailsPanel"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 63.0
-offset_right = 74.0
-offset_bottom = 91.0
-theme_override_fonts/font = SubResource("SystemFont_olbgd")
-theme_override_font_sizes/font_size = 20
-text = "TYPE :"
-
-[node name="ItemEffect" type="Label" parent="DetailsPanel"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 150.0
-offset_right = 91.0
-offset_bottom = 178.0
-theme_override_fonts/font = SubResource("SystemFont_kxvvt")
-theme_override_font_sizes/font_size = 20
-text = "EFFECT :"
-
-[node name="Line" type="ColorRect" parent="DetailsPanel"]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 120.0
-offset_right = 293.0
-offset_bottom = 127.0
-color = Color(0.47788, 0.47788, 0.47788, 1)
-
-[node name="line2" type="ColorRect" parent="DetailsPanel"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 300.0
-offset_right = 292.0
-offset_bottom = 307.0
-color = Color(0.47788, 0.47788, 0.47788, 1)
-
-[node name="detailsIcon" type="Sprite2D" parent="DetailsPanel"]
-position = Vector2(156, 382)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("1_ko6uf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fwl05")
 
 [node name="UsagePanel" type="ColorRect" parent="."]
 visible = false
 z_index = 1
-layout_mode = 0
-offset_left = -160.0
-offset_right = -10.0
-offset_bottom = 171.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.327
+anchor_right = 1.0
+anchor_bottom = 0.327
+offset_left = -106.0
+offset_top = -0.0500031
+offset_right = 2.0
+offset_bottom = 94.95
+grow_horizontal = 0
+grow_vertical = 0
 color = Color(0.262932, 0.262932, 0.262932, 1)
 
 [node name="UseButton" type="Button" parent="UsagePanel"]
+z_index = 2
 layout_mode = 0
-offset_left = 15.0
-offset_top = 10.0
-offset_right = 135.0
-offset_bottom = 73.0
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 102.0
+offset_bottom = 48.0
 theme_override_fonts/font = SubResource("SystemFont_p3uun")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 20
 text = "USE"
 
 [node name="DropButton" type="Button" parent="UsagePanel"]
+z_index = 2
 layout_mode = 0
-offset_left = 14.0
-offset_top = 87.0
-offset_right = 134.0
-offset_bottom = 150.0
+offset_left = 7.0
+offset_top = 54.0
+offset_right = 102.0
+offset_bottom = 90.0
 theme_override_fonts/font = SubResource("SystemFont_xw28x")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 20
 text = "DROP"
 
 [connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]

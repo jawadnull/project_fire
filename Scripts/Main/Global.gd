@@ -69,5 +69,10 @@ func drop_item(item_data,drop_position):
 	drop_position= adjust_drop_position(drop_position)
 	item_instance.global_position= drop_position
 	get_tree().current_scene.add_child(item_instance)
-	
-	
+
+func drop_weapon(weapon_data,drop_position):
+	var weapon_scene= load(weapon_data["scene_path"])
+	var weapon_instance = weapon_scene.instantiate()
+	weapon_instance.set_weapon_position(drop_position)
+	weapon_instance.global_position= drop_position
+	get_tree().current_scene.add_child(weapon_instance)

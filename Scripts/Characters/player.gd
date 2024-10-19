@@ -29,6 +29,8 @@ var shake_timer: int = 0.0
 @onready var hurtbox: HurtBox = $HurtBox  # Reference to the HurtBox
 @onready var health: HealthBar = $Camera2D/HealthBar
 
+
+
 #refrence player in global script
 func _ready() -> void:
 	Global.set_player_refrence(self)
@@ -116,8 +118,9 @@ func handle_input(delta):
 		inventory_ui.visible=!inventory_ui.visible
 		get_tree().paused!=get_tree().paused
 	
-	
-	
+
+
+
 
 
 

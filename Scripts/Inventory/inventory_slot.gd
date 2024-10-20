@@ -21,11 +21,6 @@ func _on_item_button_mouse_entered() -> void:
 
 
 
-
-
-
-
-
 func set_empty():
 	item_icon.texture=null
 	item_quantity.text=""
@@ -51,12 +46,12 @@ func _on_drop_button_pressed() -> void:
 		var drop_position= Global.player_Node.global_position
 		var drop_offset= Vector2(0,50)
 		drop_offset=drop_offset.rotated(Global.player_Node.rotation)
-		if item.has("effect"):
-			Global.drop_item(item, drop_position)
-			Global.remove_item(item["type"],item["effect"])
-		elif item.has("id"):
+		if item.has("effect")==true:
 			Global.drop_weapon(item, drop_position)
-			Global.remove_item(item["type"],item["id"])
+			Global.remove_weapon(item["type"],item["id"])
+		elif item.has("id")==true:
+			Global.drop_weapon(item, drop_position)
+			Global.remove_weapon(item["type"],item["id"])
 		usage_panel.visible=false 
 		
 

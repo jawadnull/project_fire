@@ -39,6 +39,17 @@ func remove_item(item_type,item_effect):
 			Inventory_Updated.emit()
 			return true
 	return false
+	
+
+func remove_weapon(weapon_type,weapon_id):
+	for i in range(Inventory.size()):
+		if Inventory[i] != null and Inventory[i]["type"]==weapon_type and Inventory[i]["id"]==weapon_id:
+			Inventory[i]["quantity"] -=1
+			if Inventory[i]["quantity"] <= 0:
+				Inventory[i]=null
+			Inventory_Updated.emit()
+			return true
+	return false
 
 func Increase_Inventory_Size(extra_slot):
 	
@@ -61,6 +72,8 @@ func adjust_drop_position(position):
 			break
 	return position
 	
+	
+
 
 func drop_item(item_data,drop_position):
 	var item_scene= load(item_data["scene_path"])
@@ -70,9 +83,27 @@ func drop_item(item_data,drop_position):
 	item_instance.global_position= drop_position
 	get_tree().current_scene.add_child(item_instance)
 
-func drop_weapon(weapon_data,drop_position):
-	var weapon_scene= load(weapon_data["scene_path"])
-	var weapon_instance = weapon_scene.instantiate()
-	weapon_instance.set_weapon_position(drop_position)
-	weapon_instance.global_position= drop_position
-	get_tree().current_scene.add_child(weapon_instance)
+func drop_weapon(weapon_data, drop_position):
+	# Get the pickup scene from the weapon_data
+	var weapon_pickup_scene = preload("res://Scenes/PickUp/pickup_weapon.tscn")
+	
+	if weapon_pickup_scene == null:
+		print("Error: weapon pickup scene is null!")
+		return
+	
+	# Instantiate the weapon pickup scene (not the actual weapon itself)
+	var weapon_pickup_instance = weapon_pickup_scene.instantiate()
+	
+	# Set the pickup instance data (weapon ID, name, etc.)
+	weapon_pickup_instance.set_weapon_data(weapon_data)
+	
+	# Adjust the drop position to avoid overlap with other items
+	drop_position = adjust_drop_position(drop_position)
+	
+	# Set the global position of the pickup object
+	weapon_pickup_instance.global_position = drop_position
+	
+	# Add the pickup instance to the current scene
+	get_tree().current_scene.add_child(weapon_pickup_instance)
+	
+	player_Node.weapon_manager.remove_weapon_by_id(weapon_data["id"])

@@ -107,6 +107,7 @@ theme_override_font_sizes/font_size = 30
 text = "PRESS 'F' TO PICK UP"
 
 [node name="Inventory_UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Inventory_UI"]
 anchors_preset = 15

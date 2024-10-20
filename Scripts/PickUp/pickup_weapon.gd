@@ -47,9 +47,12 @@ func _process(delta):
 			var weapon_manager = player.weapon_manager
 			if weapon_manager:
 				print("Weapon manager found, adding weapon to player.")  # Debugging
-				weapon_manager.weapon_inventory.append(weapon_path)  # Add the new weapon to the player's weapon manager
-				weapon_manager.add_weapon_by_id(weapon_id, weapon_path, weapon_texture)
-				weapon_manager.equip_weapon(weapon_manager.weapon_inventory.size() - 1)  # Equip the picked-up weapon
+				if not weapon_manager.weapon_ids.has(weapon_id):  # Check by weapon ID first
+					print("Weapon not in inventory, adding weapon.")
+					weapon_manager.add_weapon_by_id(weapon_id, weapon_path, weapon_texture)
+					weapon_manager.equip_weapon(weapon_manager.weapon_inventory.size() - 1)  # Equip the picked-up weapon
+				else:
+					print("Weapon already in inventory:", weapon_id)
 				
 				queue_free()  # Remove the weapon from the scene after pickup
 			else:
@@ -58,7 +61,8 @@ func _process(delta):
 			print("Player not found in the area.")
 
 func set_weapon_data(data):
-	weapon_type=data["type"]
-	weapon_name=data["name"]
-	weapon_id=data["id"]
-	weapon_texture=data["texture"]
+	weapon_id = data.get("id", 0)
+	weapon_name = data.get("name", "")
+	weapon_type = data.get("type", "")
+	weapon_texture = data.get("texture", null)
+	

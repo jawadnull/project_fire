@@ -46,12 +46,12 @@ func _on_drop_button_pressed() -> void:
 		var drop_position= Global.player_Node.global_position
 		var drop_offset= Vector2(0,50)
 		drop_offset=drop_offset.rotated(Global.player_Node.rotation)
-		if item.has("effect")==true:
+		if item.has("id")==true:
 			Global.drop_weapon(item, drop_position)
 			Global.remove_weapon(item["type"],item["id"])
-		elif item.has("id")==true:
-			Global.drop_weapon(item, drop_position)
-			Global.remove_weapon(item["type"],item["id"])
+		else: 
+			Global.drop_item(item, drop_position)
+			Global.remove_item(item["type"],item["effect"])
 		usage_panel.visible=false 
 		
 

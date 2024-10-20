@@ -65,4 +65,4 @@ func set_weapon_data(data):
 	weapon_name = data.get("name", "")
 	weapon_type = data.get("type", "")
 	weapon_texture = data.get("texture", null)
-	
+	weapon_path = data.get("scene_path", null)

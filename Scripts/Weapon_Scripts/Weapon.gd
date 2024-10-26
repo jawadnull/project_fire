@@ -14,9 +14,9 @@ var ammo_name="weapon_ammo"
 const BULLET = preload("res://Scenes/Bullets/rifle_bullet.tscn")
 
 # Gun properties
-var max_ammo = 3  # Maximum bullets in a magazine
+var max_ammo = 12  # Maximum bullets in a magazine
 var ammo = max_ammo  # Current bullets in magazine
-var reserve_ammo = 3  # Total reserve bullets
+var reserve_ammo = 12  # Total reserve bullets
 var reload_time = 1.5  # Time to reload in seconds
 
 var can_shoot = true

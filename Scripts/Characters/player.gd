@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 const MOVE_SPEED: int = 400
 const DASH_SPEED: int = 2000 
-const DASH_DURATION: int = 0.2 
-const DASH_COOLDOWN: int = 0.5  
+const DASH_DURATION: int = 5.0
+const DASH_COOLDOWN: int = 5.0
 const ACCELERATION: int = 1800  
 const DECELERATION: int = 1800  
 const SHAKE_INTENSITY: int = 8  
@@ -49,16 +49,16 @@ func _physics_process(delta):
 			knockback = Vector2.ZERO
 			knockback_timer = 0.0  # Reset timer
 	else:
-		# Only move and slide if not knocked back
+		if dash_timer > 0:
+			dash_timer -= delta
+		if dash_timer <= 0:
+			is_dashing = false  
 		handle_input(delta)  # Move the player
 	move_and_slide()
 
 
 	# Update dash timer
-	if dash_timer > 0:
-		dash_timer -= delta
-		if dash_timer <= 0:
-			is_dashing = false  
+
 
 	# Update dash cooldown timer
 	if cooldown_timer > 0:

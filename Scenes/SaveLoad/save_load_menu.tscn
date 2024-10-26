@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b53khrgtybpr7" path="res://Assets/slot.png" id="2_775j3"]
 
 [sub_resource type="FontFile" id="FontFile_rc2j1"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -21,6 +24,9 @@ cache/0/30/0/underline_thickness = 0.0
 cache/0/30/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_on08p"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -80,14 +86,17 @@ text = "
 "
 
 [node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton"]
+visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 0
+offset_left = 8.0
 offset_top = 1.0
 offset_right = 235.0
 offset_bottom = 101.0
 texture = ExtResource("2_775j3")
 
 [node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton"]
+visible = false
 layout_mode = 0
 offset_left = 271.0
 offset_top = 24.0
@@ -98,6 +107,7 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Save Name:"
 
 [node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton"]
+visible = false
 layout_mode = 0
 offset_left = 633.0
 offset_top = 26.0
@@ -108,6 +118,7 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Save Date:"
 
 [node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton"]
+visible = false
 layout_mode = 0
 offset_left = 983.0
 offset_top = 25.0
@@ -117,6 +128,556 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Game Mode:
 "
+
+[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 27.0
+offset_right = 791.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Save Slot #1"
+
+[node name="SaveLoadButton2" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton2"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 101.0
+texture = ExtResource("2_775j3")
+
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton2"]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 24.0
+offset_right = 428.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Name:"
+
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton2"]
+visible = false
+layout_mode = 0
+offset_left = 633.0
+offset_top = 26.0
+offset_right = 775.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Date:"
+
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton2"]
+visible = false
+layout_mode = 0
+offset_left = 983.0
+offset_top = 25.0
+offset_right = 1155.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Game Mode:
+"
+
+[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton2"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 27.0
+offset_right = 791.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Save Slot #2"
+
+[node name="SaveLoadButton3" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton3"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 101.0
+texture = ExtResource("2_775j3")
+
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton3"]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 24.0
+offset_right = 428.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Name:"
+
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton3"]
+visible = false
+layout_mode = 0
+offset_left = 633.0
+offset_top = 26.0
+offset_right = 775.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Date:"
+
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton3"]
+visible = false
+layout_mode = 0
+offset_left = 983.0
+offset_top = 25.0
+offset_right = 1155.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Game Mode:
+"
+
+[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton3"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 27.0
+offset_right = 791.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Save Slot #3"
+
+[node name="SaveLoadButton4" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton4"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 101.0
+texture = ExtResource("2_775j3")
+
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton4"]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 24.0
+offset_right = 428.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Name:"
+
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton4"]
+visible = false
+layout_mode = 0
+offset_left = 633.0
+offset_top = 26.0
+offset_right = 775.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Date:"
+
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton4"]
+visible = false
+layout_mode = 0
+offset_left = 983.0
+offset_top = 25.0
+offset_right = 1155.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Game Mode:
+"
+
+[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton4"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 27.0
+offset_right = 791.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Save Slot #4
+"
+
+[node name="SaveLoadButton5" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton5"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 101.0
+texture = ExtResource("2_775j3")
+
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton5"]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 24.0
+offset_right = 428.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Name:"
+
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton5"]
+visible = false
+layout_mode = 0
+offset_left = 633.0
+offset_top = 26.0
+offset_right = 775.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Date:"
+
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton5"]
+visible = false
+layout_mode = 0
+offset_left = 983.0
+offset_top = 25.0
+offset_right = 1155.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Game Mode:
+"
+
+[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton5"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 27.0
+offset_right = 791.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Save Slot #5"
+
+[node name="SaveLoadButton6" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton6"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 101.0
+texture = ExtResource("2_775j3")
+
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton6"]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 24.0
+offset_right = 428.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Name:"
+
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton6"]
+visible = false
+layout_mode = 0
+offset_left = 633.0
+offset_top = 26.0
+offset_right = 775.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Date:"
+
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton6"]
+visible = false
+layout_mode = 0
+offset_left = 983.0
+offset_top = 25.0
+offset_right = 1155.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Game Mode:
+"
+
+[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton6"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 27.0
+offset_right = 791.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Save Slot #6"
+
+[node name="SaveLoadButton7" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton7"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 101.0
+texture = ExtResource("2_775j3")
+
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton7"]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 24.0
+offset_right = 428.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Name:"
+
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton7"]
+visible = false
+layout_mode = 0
+offset_left = 633.0
+offset_top = 26.0
+offset_right = 775.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Date:"
+
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton7"]
+visible = false
+layout_mode = 0
+offset_left = 983.0
+offset_top = 25.0
+offset_right = 1155.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Game Mode:
+"
+
+[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton7"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 27.0
+offset_right = 791.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Save Slot #7"
+
+[node name="SaveLoadButton8" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton8"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 101.0
+texture = ExtResource("2_775j3")
+
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton8"]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 24.0
+offset_right = 428.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Name:"
+
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton8"]
+visible = false
+layout_mode = 0
+offset_left = 633.0
+offset_top = 26.0
+offset_right = 775.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Date:"
+
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton8"]
+visible = false
+layout_mode = 0
+offset_left = 983.0
+offset_top = 25.0
+offset_right = 1155.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Game Mode:
+"
+
+[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton8"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 27.0
+offset_right = 791.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Save Slot #8"
+
+[node name="SaveLoadButton9" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton9"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 101.0
+texture = ExtResource("2_775j3")
+
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton9"]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 24.0
+offset_right = 428.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Name:"
+
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton9"]
+visible = false
+layout_mode = 0
+offset_left = 633.0
+offset_top = 26.0
+offset_right = 775.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Date:"
+
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton9"]
+visible = false
+layout_mode = 0
+offset_left = 983.0
+offset_top = 25.0
+offset_right = 1155.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Game Mode:
+"
+
+[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton9"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 27.0
+offset_right = 791.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Save Slot #9"
+
+[node name="SaveLoadButton10" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton10"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 101.0
+texture = ExtResource("2_775j3")
+
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton10"]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 24.0
+offset_right = 428.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Name:"
+
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton10"]
+visible = false
+layout_mode = 0
+offset_left = 633.0
+offset_top = 26.0
+offset_right = 775.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Date:"
+
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton10"]
+visible = false
+layout_mode = 0
+offset_left = 983.0
+offset_top = 25.0
+offset_right = 1155.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Game Mode:
+"
+
+[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton10"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 27.0
+offset_right = 791.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Save Slot #10"
 
 [node name="GameMode2" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 1

@@ -117,6 +117,8 @@ func handle_input(delta):
 	if Input.is_action_just_pressed("inventory"):
 		inventory_ui.visible=!inventory_ui.visible
 		get_tree().paused!=get_tree().paused
+		
+
 	
 
 

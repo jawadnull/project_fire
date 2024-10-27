@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7h28brkg6mr3"]
+[gd_scene load_steps=11 format=3 uid="uid://c7h28brkg6mr3"]
 
 [ext_resource type="Script" path="res://Scripts/Main/Main.gd" id="1_f5vpd"]
 [ext_resource type="PackedScene" uid="uid://4p40menupcc3" path="res://Scenes/Characters/player.tscn" id="2_4mqcj"]
 [ext_resource type="PackedScene" uid="uid://g32u3ysi0xjr" path="res://Scenes/PickUp/pickup_weapon.tscn" id="4_gyx4d"]
 [ext_resource type="PackedScene" uid="uid://co1gwvc7cedy8" path="res://Scenes/Weapons/Weapon.tscn" id="5_rpos2"]
-[ext_resource type="PackedScene" uid="uid://gt58m12252kx" path="res://Scenes/SaveLoad/save_load_menu.tscn" id="7_m7mmj"]
+[ext_resource type="PackedScene" uid="uid://gt58m12252kx" path="res://Scenes/SaveLoad/save_menu.tscn" id="7_m7mmj"]
 [ext_resource type="PackedScene" uid="uid://du3msml04tlv1" path="res://Scenes/Enemis/walker.tscn" id="8_heg8l"]
+[ext_resource type="PackedScene" uid="uid://b2h7ptwhotkwh" path="res://Scenes/SaveLoad/load_menu.tscn" id="8_rt35j"]
+[ext_resource type="PackedScene" uid="uid://dltdj0evjhrch" path="res://Scenes/SaveLoad/save_point.tscn" id="9_iws5i"]
 [ext_resource type="Texture2D" uid="uid://b6givmhgiqv6x" path="res://Assets/weapons_assets/gun.png" id="10_hl5u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6h2"]
@@ -33,11 +35,42 @@ shape = SubResource("RectangleShape2D_0u6h2")
 position = Vector2(-301, -3)
 
 [node name="Player" parent="." instance=ExtResource("2_4mqcj")]
+unique_name_in_owner = true
 position = Vector2(-784, -7)
 
-[node name="SaveLoadMenu" parent="." instance=ExtResource("7_m7mmj")]
+[node name="SaveMenu" parent="Player" instance=ExtResource("7_m7mmj")]
 visible = false
-offset_left = -1741.0
-offset_top = -540.0
-offset_right = -1741.0
-offset_bottom = -540.0
+z_index = 5
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -958.0
+offset_top = -541.0
+offset_right = -958.0
+offset_bottom = -541.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 4
+
+[node name="LoadMenu" parent="Player" instance=ExtResource("8_rt35j")]
+visible = false
+z_index = 5
+offset_left = -956.0
+offset_top = -545.0
+offset_right = -956.0
+offset_bottom = -545.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SavePoint" parent="." instance=ExtResource("9_iws5i")]
+position = Vector2(-1023, 0)
+
+[node name="SavePoint2" parent="." instance=ExtResource("9_iws5i")]
+position = Vector2(-1481, 373)
+
+[node name="SavePoint3" parent="." instance=ExtResource("9_iws5i")]
+position = Vector2(-1447, -193)
+
+[connection signal="body_entered" from="SavePoint" to="SavePoint" method="_on_body_entered"]
+[connection signal="body_entered" from="SavePoint2" to="SavePoint2" method="_on_body_entered"]
+[connection signal="body_entered" from="SavePoint3" to="SavePoint3" method="_on_body_entered"]

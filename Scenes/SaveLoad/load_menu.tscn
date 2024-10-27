@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://gt58m12252kx"]
+[gd_scene load_steps=6 format=3 uid="uid://b2h7ptwhotkwh"]
 
-[ext_resource type="Texture2D" uid="uid://bk6yjyef3cm1d" path="res://Assets/GUI.png" id="1_kb3vx"]
-[ext_resource type="Texture2D" uid="uid://b53khrgtybpr7" path="res://Assets/slot.png" id="2_775j3"]
+[ext_resource type="Script" path="res://Scripts/Save_Game/load_menu.gd" id="1_dwbh5"]
+[ext_resource type="Texture2D" uid="uid://bk6yjyef3cm1d" path="res://Assets/GUI.png" id="2_8sr3i"]
+[ext_resource type="Texture2D" uid="uid://b53khrgtybpr7" path="res://Assets/slot.png" id="3_l664b"]
 
 [sub_resource type="FontFile" id="FontFile_rc2j1"]
 subpixel_positioning = 0
@@ -43,19 +44,20 @@ cache/0/50/0/underline_position = 0.0
 cache/0/50/0/underline_thickness = 0.0
 cache/0/50/0/scale = 1.0
 
-[node name="SaveLoadMenu" type="Control"]
+[node name="LoadMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dwbh5")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_right = 1922.0
 offset_bottom = 1082.0
-texture = ExtResource("1_kb3vx")
+texture = ExtResource("2_8sr3i")
 region_rect = Rect2(2.55501, 33.8018, 43.2537, 44.3491)
 
 [node name="Panel" type="Panel" parent="NinePatchRect"]
@@ -73,19 +75,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SaveLoadButtons" type="VBoxContainer" parent="NinePatchRect/Panel/ScrollContainer"]
+[node name="LoadButtons" type="VBoxContainer" parent="NinePatchRect/Panel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SaveLoadButton" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+[node name="LoadButton1" type="Button" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 2
 text = "
 "
 
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton"]
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton1"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 101.0
+texture = ExtResource("3_l664b")
+
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton1"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 24.0
+offset_right = 428.0
+offset_bottom = 73.0
+theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Name:"
+
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton1"]
+layout_mode = 0
+offset_left = 633.0
+offset_top = 26.0
+offset_right = 775.0
+offset_bottom = 68.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Date:"
+
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton1"]
+layout_mode = 0
+offset_left = 983.0
+offset_top = 25.0
+offset_right = 1155.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = SubResource("FontFile_on08p")
+theme_override_font_sizes/normal_font_size = 30
+text = "Game Mode:
+"
+
+[node name="LoadButton2" type="Button" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton2"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 0
@@ -93,9 +142,9 @@ offset_left = 8.0
 offset_top = 1.0
 offset_right = 235.0
 offset_bottom = 101.0
-texture = ExtResource("2_775j3")
+texture = ExtResource("3_l664b")
 
-[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton"]
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton2"]
 visible = false
 layout_mode = 0
 offset_left = 271.0
@@ -106,7 +155,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Name:"
 
-[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton"]
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton2"]
 visible = false
 layout_mode = 0
 offset_left = 633.0
@@ -117,7 +166,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Date:"
 
-[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton"]
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton2"]
 visible = false
 layout_mode = 0
 offset_left = 983.0
@@ -129,23 +178,14 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Game Mode:
 "
 
-[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton"]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 27.0
-offset_right = 791.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 30
-text = "Save Slot #1"
-
-[node name="SaveLoadButton2" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+[node name="LoadButton3" type="Button" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 2
 text = "
 "
 
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton2"]
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton3"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 0
@@ -153,9 +193,9 @@ offset_left = 8.0
 offset_top = 1.0
 offset_right = 235.0
 offset_bottom = 101.0
-texture = ExtResource("2_775j3")
+texture = ExtResource("3_l664b")
 
-[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton2"]
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton3"]
 visible = false
 layout_mode = 0
 offset_left = 271.0
@@ -166,7 +206,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Name:"
 
-[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton2"]
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton3"]
 visible = false
 layout_mode = 0
 offset_left = 633.0
@@ -177,7 +217,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Date:"
 
-[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton2"]
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton3"]
 visible = false
 layout_mode = 0
 offset_left = 983.0
@@ -189,23 +229,14 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Game Mode:
 "
 
-[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton2"]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 27.0
-offset_right = 791.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 30
-text = "Save Slot #2"
-
-[node name="SaveLoadButton3" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+[node name="LoadButton4" type="Button" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 2
 text = "
 "
 
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton3"]
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton4"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 0
@@ -213,9 +244,9 @@ offset_left = 8.0
 offset_top = 1.0
 offset_right = 235.0
 offset_bottom = 101.0
-texture = ExtResource("2_775j3")
+texture = ExtResource("3_l664b")
 
-[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton3"]
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton4"]
 visible = false
 layout_mode = 0
 offset_left = 271.0
@@ -226,7 +257,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Name:"
 
-[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton3"]
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton4"]
 visible = false
 layout_mode = 0
 offset_left = 633.0
@@ -237,7 +268,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Date:"
 
-[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton3"]
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton4"]
 visible = false
 layout_mode = 0
 offset_left = 983.0
@@ -249,23 +280,14 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Game Mode:
 "
 
-[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton3"]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 27.0
-offset_right = 791.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 30
-text = "Save Slot #3"
-
-[node name="SaveLoadButton4" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+[node name="LoadButton5" type="Button" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 2
 text = "
 "
 
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton4"]
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton5"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 0
@@ -273,9 +295,9 @@ offset_left = 8.0
 offset_top = 1.0
 offset_right = 235.0
 offset_bottom = 101.0
-texture = ExtResource("2_775j3")
+texture = ExtResource("3_l664b")
 
-[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton4"]
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton5"]
 visible = false
 layout_mode = 0
 offset_left = 271.0
@@ -286,7 +308,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Name:"
 
-[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton4"]
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton5"]
 visible = false
 layout_mode = 0
 offset_left = 633.0
@@ -297,7 +319,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Date:"
 
-[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton4"]
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton5"]
 visible = false
 layout_mode = 0
 offset_left = 983.0
@@ -309,24 +331,14 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Game Mode:
 "
 
-[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton4"]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 27.0
-offset_right = 791.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 30
-text = "Save Slot #4
-"
-
-[node name="SaveLoadButton5" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+[node name="LoadButton6" type="Button" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 2
 text = "
 "
 
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton5"]
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton6"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 0
@@ -334,9 +346,9 @@ offset_left = 8.0
 offset_top = 1.0
 offset_right = 235.0
 offset_bottom = 101.0
-texture = ExtResource("2_775j3")
+texture = ExtResource("3_l664b")
 
-[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton5"]
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton6"]
 visible = false
 layout_mode = 0
 offset_left = 271.0
@@ -347,7 +359,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Name:"
 
-[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton5"]
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton6"]
 visible = false
 layout_mode = 0
 offset_left = 633.0
@@ -358,7 +370,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Date:"
 
-[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton5"]
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton6"]
 visible = false
 layout_mode = 0
 offset_left = 983.0
@@ -370,23 +382,14 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Game Mode:
 "
 
-[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton5"]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 27.0
-offset_right = 791.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 30
-text = "Save Slot #5"
-
-[node name="SaveLoadButton6" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+[node name="LoadButton7" type="Button" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 2
 text = "
 "
 
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton6"]
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton7"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 0
@@ -394,9 +397,9 @@ offset_left = 8.0
 offset_top = 1.0
 offset_right = 235.0
 offset_bottom = 101.0
-texture = ExtResource("2_775j3")
+texture = ExtResource("3_l664b")
 
-[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton6"]
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton7"]
 visible = false
 layout_mode = 0
 offset_left = 271.0
@@ -407,7 +410,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Name:"
 
-[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton6"]
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton7"]
 visible = false
 layout_mode = 0
 offset_left = 633.0
@@ -418,7 +421,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Date:"
 
-[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton6"]
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton7"]
 visible = false
 layout_mode = 0
 offset_left = 983.0
@@ -430,23 +433,14 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Game Mode:
 "
 
-[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton6"]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 27.0
-offset_right = 791.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 30
-text = "Save Slot #6"
-
-[node name="SaveLoadButton7" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+[node name="LoadButton8" type="Button" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 2
 text = "
 "
 
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton7"]
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton8"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 0
@@ -454,9 +448,9 @@ offset_left = 8.0
 offset_top = 1.0
 offset_right = 235.0
 offset_bottom = 101.0
-texture = ExtResource("2_775j3")
+texture = ExtResource("3_l664b")
 
-[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton7"]
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton8"]
 visible = false
 layout_mode = 0
 offset_left = 271.0
@@ -467,7 +461,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Name:"
 
-[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton7"]
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton8"]
 visible = false
 layout_mode = 0
 offset_left = 633.0
@@ -478,7 +472,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Date:"
 
-[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton7"]
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton8"]
 visible = false
 layout_mode = 0
 offset_left = 983.0
@@ -490,23 +484,14 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Game Mode:
 "
 
-[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton7"]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 27.0
-offset_right = 791.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 30
-text = "Save Slot #7"
-
-[node name="SaveLoadButton8" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+[node name="LoadButton9" type="Button" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 2
 text = "
 "
 
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton8"]
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton9"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 0
@@ -514,9 +499,9 @@ offset_left = 8.0
 offset_top = 1.0
 offset_right = 235.0
 offset_bottom = 101.0
-texture = ExtResource("2_775j3")
+texture = ExtResource("3_l664b")
 
-[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton8"]
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton9"]
 visible = false
 layout_mode = 0
 offset_left = 271.0
@@ -527,7 +512,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Name:"
 
-[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton8"]
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton9"]
 visible = false
 layout_mode = 0
 offset_left = 633.0
@@ -538,7 +523,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Date:"
 
-[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton8"]
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton9"]
 visible = false
 layout_mode = 0
 offset_left = 983.0
@@ -550,23 +535,14 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Game Mode:
 "
 
-[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton8"]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 27.0
-offset_right = 791.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 30
-text = "Save Slot #8"
-
-[node name="SaveLoadButton9" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
+[node name="LoadButton10" type="Button" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 2
 text = "
 "
 
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton9"]
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton10"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 0
@@ -574,9 +550,9 @@ offset_left = 8.0
 offset_top = 1.0
 offset_right = 235.0
 offset_bottom = 101.0
-texture = ExtResource("2_775j3")
+texture = ExtResource("3_l664b")
 
-[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton9"]
+[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton10"]
 visible = false
 layout_mode = 0
 offset_left = 271.0
@@ -587,7 +563,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Name:"
 
-[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton9"]
+[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton10"]
 visible = false
 layout_mode = 0
 offset_left = 633.0
@@ -598,7 +574,7 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Save Date:"
 
-[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton9"]
+[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton10"]
 visible = false
 layout_mode = 0
 offset_left = 983.0
@@ -609,75 +585,6 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 30
 text = "Game Mode:
 "
-
-[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton9"]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 27.0
-offset_right = 791.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 30
-text = "Save Slot #9"
-
-[node name="SaveLoadButton10" type="Button" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_vertical = 2
-text = "
-"
-
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton10"]
-visible = false
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 0
-offset_left = 8.0
-offset_top = 1.0
-offset_right = 235.0
-offset_bottom = 101.0
-texture = ExtResource("2_775j3")
-
-[node name="SaveName" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton10"]
-visible = false
-layout_mode = 0
-offset_left = 271.0
-offset_top = 24.0
-offset_right = 428.0
-offset_bottom = 73.0
-theme_override_fonts/normal_font = SubResource("FontFile_rc2j1")
-theme_override_font_sizes/normal_font_size = 30
-text = "Save Name:"
-
-[node name="SaveDate" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton10"]
-visible = false
-layout_mode = 0
-offset_left = 633.0
-offset_top = 26.0
-offset_right = 775.0
-offset_bottom = 68.0
-theme_override_fonts/normal_font = SubResource("FontFile_on08p")
-theme_override_font_sizes/normal_font_size = 30
-text = "Save Date:"
-
-[node name="GameMode" type="RichTextLabel" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton10"]
-visible = false
-layout_mode = 0
-offset_left = 983.0
-offset_top = 25.0
-offset_right = 1155.0
-offset_bottom = 67.0
-theme_override_fonts/normal_font = SubResource("FontFile_on08p")
-theme_override_font_sizes/normal_font_size = 30
-text = "Game Mode:
-"
-
-[node name="SaveSlot" type="Label" parent="NinePatchRect/Panel/ScrollContainer/SaveLoadButtons/SaveLoadButton10"]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 27.0
-offset_right = 791.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 30
-text = "Save Slot #10"
 
 [node name="GameMode2" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 1
@@ -693,3 +600,5 @@ theme_override_fonts/normal_font = SubResource("FontFile_on08p")
 theme_override_font_sizes/normal_font_size = 50
 text = "Save Game
 "
+
+[connection signal="pressed" from="NinePatchRect/Panel/ScrollContainer/LoadButtons/LoadButton1" to="." method="load_game"]

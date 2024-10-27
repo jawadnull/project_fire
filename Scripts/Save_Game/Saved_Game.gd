@@ -1,6 +1,6 @@
 class_name SavedGame
 extends Resource
 
-
-@export var max_health: int 
-@export var ammo: int 
+@export var player_position:Vector2
+@export var player_health: int 
+@export var player_ammo: int 

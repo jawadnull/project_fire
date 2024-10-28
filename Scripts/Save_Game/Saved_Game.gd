@@ -3,4 +3,5 @@ extends Resource
 
 @export var player_position:Vector2
 @export var player_health: int 
-@export var player_ammo: int 
+@export var weapon_ammo = {}
+@export var inventory: Array = []

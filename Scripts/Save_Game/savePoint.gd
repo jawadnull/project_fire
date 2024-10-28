@@ -10,12 +10,12 @@ var Player_In_range=null
 func _process(delta: float) -> void:
 	if Player_In_range and Input.is_action_just_pressed("saveMenu"):
 		save_menu.visible=!save_menu.visible
-		get_tree().paused!=get_tree().paused
+	
 	
 	
 	if  Player_In_range and Input.is_action_just_pressed("loadMenu"):
 		load_menu.visible=!load_menu.visible
-		get_tree().paused!=get_tree().paused
+	
 	
 
 

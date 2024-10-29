@@ -18,7 +18,15 @@ func load_game():
 			var weapon = player.weapon_manager.weapon_ids[weapon_id].instantiate()
 			weapon.ammo = saved_game.weapon_ammo[weapon_id] 
 	
+	Global.Inventory.clear()
+	Global.Inventory.resize(saved_game.inventory_size)
+	for item in saved_game.inventory:
+		Global.Inventory.insert(0, item) 
+	Global.Inventory_Updated.emit()  
 	
+	if saved_game.equipped_weapon_id != "":
+		player.weapon_manager.switch_weapon_by_id(saved_game.equipped_weapon_id)
+
 	
 	load_menu.visible=false
 	save_menu.visible=false
